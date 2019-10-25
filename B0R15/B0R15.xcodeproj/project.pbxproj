@@ -15,6 +15,11 @@
 		0B12F59D23619C84009EDDD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B12F59B23619C84009EDDD7 /* LaunchScreen.storyboard */; };
 		0B12F5A523619E63009EDDD7 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5A423619E63009EDDD7 /* MainController.swift */; };
 		0B12F5A92361C3E8009EDDD7 /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */; };
+		0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5AD2361CA17009EDDD7 /* Colors.swift */; };
+		0B12F5B02361D222009EDDD7 /* ScoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5AF2361D222009EDDD7 /* ScoreButton.swift */; };
+		0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5B22361D412009EDDD7 /* Constants.swift */; };
+		0B12F5B72361D81E009EDDD7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5B62361D81E009EDDD7 /* Helpers.swift */; };
+		0B12F5BD23630C02009EDDD7 /* ScoreboardLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5BC23630C02009EDDD7 /* ScoreboardLauncher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		0B12F59E23619C84009EDDD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B12F5A423619E63009EDDD7 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
+		0B12F5AD2361CA17009EDDD7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		0B12F5AF2361D222009EDDD7 /* ScoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreButton.swift; sourceTree = "<group>"; };
+		0B12F5B22361D412009EDDD7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0B12F5B62361D81E009EDDD7 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		0B12F5BC23630C02009EDDD7 /* ScoreboardLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardLauncher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,7 @@
 			children = (
 				0B12F59423619C83009EDDD7 /* SplashController.swift */,
 				0B12F5A423619E63009EDDD7 /* MainController.swift */,
+				0B12F5BC23630C02009EDDD7 /* ScoreboardLauncher.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -86,6 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */,
+				0B12F5AF2361D222009EDDD7 /* ScoreButton.swift */,
+				0B12F5B22361D412009EDDD7 /* Constants.swift */,
+				0B12F5B62361D81E009EDDD7 /* Helpers.swift */,
+				0B12F5AD2361CA17009EDDD7 /* Colors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,11 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B12F5BD23630C02009EDDD7 /* ScoreboardLauncher.swift in Sources */,
 				0B12F59523619C83009EDDD7 /* SplashController.swift in Sources */,
+				0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */,
+				0B12F5B72361D81E009EDDD7 /* Helpers.swift in Sources */,
 				0B12F5A523619E63009EDDD7 /* MainController.swift in Sources */,
 				0B12F5A92361C3E8009EDDD7 /* SelectionButton.swift in Sources */,
 				0B12F59123619C83009EDDD7 /* AppDelegate.swift in Sources */,
+				0B12F5B02361D222009EDDD7 /* ScoreButton.swift in Sources */,
 				0B12F59323619C83009EDDD7 /* SceneDelegate.swift in Sources */,
+				0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

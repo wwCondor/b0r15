@@ -8,12 +8,6 @@
 
 import UIKit
 
-
-struct ButtonConstants {
-    static let buttonSize: CGFloat = 120
-    static let buttonCornerRadius = buttonSize / 2
-}
-
 class SelectionButton: UIButton {
     
     override init(frame: CGRect) {
@@ -27,7 +21,6 @@ class SelectionButton: UIButton {
     }
     
     private func setupButton() {
-//        addShadow()
         addPulse()
         addStyle()
     }
@@ -37,17 +30,6 @@ class SelectionButton: UIButton {
         layer.cornerRadius = ButtonConstants.buttonCornerRadius
         layer.masksToBounds = true
     }
-    
-    // Needs work
-//    private func addShadow() {
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOffset = CGSize(width: 0, height: 6)
-//        layer.shadowRadius = 1
-//        layer.shadowOpacity = 0.5
-//        layer.cornerRadius = Constants.buttonSize / 2
-//        clipsToBounds = true
-//        layer.masksToBounds = true
-//    }
     
     private func addPulse() {
         let pulse = CABasicAnimation(keyPath: "transform.scale")
