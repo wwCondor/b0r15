@@ -13,13 +13,14 @@
 		0B12F59823619C83009EDDD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B12F59623619C83009EDDD7 /* Main.storyboard */; };
 		0B12F59A23619C84009EDDD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B12F59923619C84009EDDD7 /* Assets.xcassets */; };
 		0B12F59D23619C84009EDDD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B12F59B23619C84009EDDD7 /* LaunchScreen.storyboard */; };
-		0B12F5A523619E63009EDDD7 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5A423619E63009EDDD7 /* MainController.swift */; };
 		0B12F5A92361C3E8009EDDD7 /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */; };
 		0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5AD2361CA17009EDDD7 /* Colors.swift */; };
 		0B12F5B02361D222009EDDD7 /* ScoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5AF2361D222009EDDD7 /* ScoreButton.swift */; };
 		0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5B22361D412009EDDD7 /* Constants.swift */; };
 		0B12F5B72361D81E009EDDD7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5B62361D81E009EDDD7 /* Helpers.swift */; };
 		0B12F5BD23630C02009EDDD7 /* ScoreboardLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5BC23630C02009EDDD7 /* ScoreboardLauncher.swift */; };
+		0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5BE2363295A009EDDD7 /* GameModes.swift */; };
+		0B7ABCE323659DBA00EF16B0 /* PuzzleBoardLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCE223659DBA00EF16B0 /* PuzzleBoardLauncher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +32,14 @@
 		0B12F59923619C84009EDDD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B12F59C23619C84009EDDD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B12F59E23619C84009EDDD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B12F5A423619E63009EDDD7 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
 		0B12F5AD2361CA17009EDDD7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0B12F5AF2361D222009EDDD7 /* ScoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreButton.swift; sourceTree = "<group>"; };
 		0B12F5B22361D412009EDDD7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0B12F5B62361D81E009EDDD7 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		0B12F5BC23630C02009EDDD7 /* ScoreboardLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardLauncher.swift; sourceTree = "<group>"; };
+		0B12F5BE2363295A009EDDD7 /* GameModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModes.swift; sourceTree = "<group>"; };
+		0B7ABCE223659DBA00EF16B0 /* PuzzleBoardLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardLauncher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		0B12F58F23619C83009EDDD7 /* B0R15 */ = {
 			isa = PBXGroup;
 			children = (
+				0B7ABCE62365A72F00EF16B0 /* Delete? */,
 				0B12F5AA2361C514009EDDD7 /* Controllers */,
 				0B12F5AB2361C523009EDDD7 /* Models */,
 				0B12F5AC2361C53E009EDDD7 /* Views */,
@@ -87,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				0B12F59423619C83009EDDD7 /* SplashController.swift */,
-				0B12F5A423619E63009EDDD7 /* MainController.swift */,
 				0B12F5BC23630C02009EDDD7 /* ScoreboardLauncher.swift */,
+				0B7ABCE223659DBA00EF16B0 /* PuzzleBoardLauncher.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -101,6 +104,7 @@
 				0B12F5B22361D412009EDDD7 /* Constants.swift */,
 				0B12F5B62361D81E009EDDD7 /* Helpers.swift */,
 				0B12F5AD2361CA17009EDDD7 /* Colors.swift */,
+				0B12F5BE2363295A009EDDD7 /* GameModes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -110,6 +114,13 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0B7ABCE62365A72F00EF16B0 /* Delete? */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Delete?";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,13 +195,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B12F5BD23630C02009EDDD7 /* ScoreboardLauncher.swift in Sources */,
+				0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */,
 				0B12F59523619C83009EDDD7 /* SplashController.swift in Sources */,
 				0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */,
 				0B12F5B72361D81E009EDDD7 /* Helpers.swift in Sources */,
-				0B12F5A523619E63009EDDD7 /* MainController.swift in Sources */,
 				0B12F5A92361C3E8009EDDD7 /* SelectionButton.swift in Sources */,
 				0B12F59123619C83009EDDD7 /* AppDelegate.swift in Sources */,
 				0B12F5B02361D222009EDDD7 /* ScoreButton.swift in Sources */,
+				0B7ABCE323659DBA00EF16B0 /* PuzzleBoardLauncher.swift in Sources */,
 				0B12F59323619C83009EDDD7 /* SceneDelegate.swift in Sources */,
 				0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */,
 			);

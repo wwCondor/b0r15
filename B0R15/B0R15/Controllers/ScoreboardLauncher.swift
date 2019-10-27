@@ -16,6 +16,9 @@ class ScoreboardLauncher: NSObject {
         let layout = UICollectionViewFlowLayout()
         let scoreboard = UICollectionView(frame: .zero, collectionViewLayout: layout)
         scoreboard.backgroundColor = UIColor.systemPink
+        let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissScores))
+        swipeDownGesture.direction = .down
+        scoreboard.addGestureRecognizer(swipeDownGesture)
         return scoreboard
     }()
         
@@ -33,10 +36,26 @@ class ScoreboardLauncher: NSObject {
             fadeView.frame = window.frame
             fadeView.alpha = 0
             
-            let scoreboardWidth = window.frame.height * (5/6)
-            let scoreboardHeigth = window.frame.height * (1/3)
-            let y = window.frame.height
-            scoreboard.frame = CGRect(x: 0, y: y, width: scoreboardWidth, height: scoreboardHeigth)
+            let scoreboardWidth = window.frame.width * (7/8)
+            let scoreboardHeigth = window.frame.height * (1/4)
+            
+            // Since view is not full width we take screenWidth - scoreboardWidth
+            // That distance /2 gives the xOffset needed to center it
+            let xOffset = (window.frame.width - scoreboardWidth) / 2
+            
+            // Since we don't want the slider at the top of the screen the yOffset is a full screen's heigth
+            let yOffset = window.frame.height
+            scoreboard.frame = CGRect(x: xOffset, y: yOffset, width: scoreboardWidth, height: scoreboardHeigth)
+            
+            // This handles rounding off only the indicated corners ->
+            let maskPath = UIBezierPath(roundedRect: scoreboard.bounds,
+                                        byRoundingCorners: [.topLeft, .topRight],
+                                        cornerRadii: CGSize(width: xOffset, height: xOffset))
+            let shape = CAShapeLayer()
+            shape.path = maskPath.cgPath
+            scoreboard.layer.mask = shape
+            // <-
+            scoreboard.layer.masksToBounds = true
             
             UIView.animate(
                 withDuration: 0.8,

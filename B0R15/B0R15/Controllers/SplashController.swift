@@ -10,8 +10,8 @@ import UIKit
 
 class SplashController: UIViewController {
     
-    let mainController = MainController()
-    var buttonState: Bool = true
+    let puzzleBoardLauncher = PuzzleBoardLauncher()
+    let scoreboardLauncher = ScoreboardLauncher()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,18 +39,11 @@ class SplashController: UIViewController {
         return scoreButton
     }()
     
-//    lazy var scoreboard: Scoreboard = {
-//        let scoreboard = Scoreboard()
-//        return scoreboard
-//    }()
-
-    
     func setupViews() {
         view.backgroundColor = UIColor(named: Color.backgroundColor.rawValue)
         view.addSubview(modeOneSelectionButton)
         view.addSubview(modeTwoSelectionButton)
         view.addSubview(scoreButton)
-//        view.addSubview(scoreboard)
         
         modeOneSelectionButton.translatesAutoresizingMaskIntoConstraints = false
         modeOneSelectionButton.heightAnchor.constraint(equalToConstant: ButtonConstants.buttonSize).isActive = true // Height of the menuBar
@@ -68,15 +61,7 @@ class SplashController: UIViewController {
         scoreButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(1.5 * ButtonConstants.scoreButtonSize)).isActive = true
         scoreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(1.5 * ButtonConstants.scoreButtonSize)).isActive = true
         
-//        scoreboard.translatesAutoresizingMaskIntoConstraints = false
-//        scoreboard.heightAnchor.constraint(equalToConstant: view.frame.height / 4).isActive = true // Height of the menuBar
-//        scoreboard.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
-//        scoreboard.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-//        scoreboard.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
     }
-    
-    
-    let scoreboardLauncher = ScoreboardLauncher()
     
     @objc func showScores(sender: ScoreButton) {
         scoreboardLauncher.showScores()
@@ -87,10 +72,12 @@ class SplashController: UIViewController {
         switch sender {
         case modeOneSelectionButton:
             print("Mode 1 selected")
-            present(mainController, animated: true, completion: nil)
+            puzzleBoardLauncher.modeSelected = .modeOne
+            puzzleBoardLauncher.showPuzzelBoard()
         case modeTwoSelectionButton:
             print("Mode 2 selected")
-            present(mainController, animated: true, completion: nil)
+            puzzleBoardLauncher.modeSelected = .modeTwo
+            puzzleBoardLauncher.showPuzzelBoard()
         default: print("This does not work")
         }
     }
