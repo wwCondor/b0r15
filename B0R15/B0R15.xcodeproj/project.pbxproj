@@ -22,8 +22,8 @@
 		0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5BE2363295A009EDDD7 /* GameModes.swift */; };
 		0B7ABCE323659DBA00EF16B0 /* PuzzleBoardLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCE223659DBA00EF16B0 /* PuzzleBoardLauncher.swift */; };
 		0B7ABCE82366CD9600EF16B0 /* PuzzleBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */; };
-		0B7ABCED2366EEED00EF16B0 /* PuzzleBoardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCEC2366EEED00EF16B0 /* PuzzleBoardContainer.swift */; };
-		0B7ABCEF23672BB900EF16B0 /* TimerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCEE23672BB900EF16B0 /* TimerContainer.swift */; };
+		0B7ABCF323687AEC00EF16B0 /* ScoreboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */; };
+		0B7ABCF52368BBA500EF16B0 /* PuzzleBoardTileMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF42368BBA500EF16B0 /* PuzzleBoardTileMovement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +44,8 @@
 		0B12F5BE2363295A009EDDD7 /* GameModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModes.swift; sourceTree = "<group>"; };
 		0B7ABCE223659DBA00EF16B0 /* PuzzleBoardLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardLauncher.swift; sourceTree = "<group>"; };
 		0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardCell.swift; sourceTree = "<group>"; };
-		0B7ABCEC2366EEED00EF16B0 /* PuzzleBoardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardContainer.swift; sourceTree = "<group>"; };
-		0B7ABCEE23672BB900EF16B0 /* TimerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerContainer.swift; sourceTree = "<group>"; };
+		0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardCell.swift; sourceTree = "<group>"; };
+		0B7ABCF42368BBA500EF16B0 /* PuzzleBoardTileMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardTileMovement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				0B7ABCE62365A72F00EF16B0 /* Delete? */,
-				0B12F5AB2361C523009EDDD7 /* Models */,
-				0B12F5AA2361C514009EDDD7 /* Controllers */,
-				0B12F5AC2361C53E009EDDD7 /* Views */,
+				0B12F5AB2361C523009EDDD7 /* Model */,
+				0B12F5AA2361C514009EDDD7 /* Controller */,
+				0B12F5AC2361C53E009EDDD7 /* View */,
 				0B12F59023619C83009EDDD7 /* AppDelegate.swift */,
 				0B12F59223619C83009EDDD7 /* SceneDelegate.swift */,
 				0B12F59923619C84009EDDD7 /* Assets.xcassets */,
@@ -92,17 +92,18 @@
 			path = B0R15;
 			sourceTree = "<group>";
 		};
-		0B12F5AA2361C514009EDDD7 /* Controllers */ = {
+		0B12F5AA2361C514009EDDD7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				0B12F59423619C83009EDDD7 /* SplashController.swift */,
 				0B12F5BC23630C02009EDDD7 /* ScoreboardLauncher.swift */,
 				0B7ABCE223659DBA00EF16B0 /* PuzzleBoardLauncher.swift */,
+				0B7ABCF42368BBA500EF16B0 /* PuzzleBoardTileMovement.swift */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		0B12F5AB2361C523009EDDD7 /* Models */ = {
+		0B12F5AB2361C523009EDDD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */,
@@ -112,22 +113,21 @@
 				0B12F5AD2361CA17009EDDD7 /* Colors.swift */,
 				0B12F5BE2363295A009EDDD7 /* GameModes.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		0B12F5AC2361C53E009EDDD7 /* Views */ = {
+		0B12F5AC2361C53E009EDDD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */,
+				0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		0B7ABCE62365A72F00EF16B0 /* Delete? */ = {
 			isa = PBXGroup;
 			children = (
-				0B7ABCEE23672BB900EF16B0 /* TimerContainer.swift */,
-				0B7ABCEC2366EEED00EF16B0 /* PuzzleBoardContainer.swift */,
 			);
 			path = "Delete?";
 			sourceTree = "<group>";
@@ -203,7 +203,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B7ABCED2366EEED00EF16B0 /* PuzzleBoardContainer.swift in Sources */,
 				0B12F5BD23630C02009EDDD7 /* ScoreboardLauncher.swift in Sources */,
 				0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */,
 				0B12F59523619C83009EDDD7 /* SplashController.swift in Sources */,
@@ -213,10 +212,11 @@
 				0B7ABCE82366CD9600EF16B0 /* PuzzleBoardCell.swift in Sources */,
 				0B12F59123619C83009EDDD7 /* AppDelegate.swift in Sources */,
 				0B12F5B02361D222009EDDD7 /* ScoreButton.swift in Sources */,
+				0B7ABCF52368BBA500EF16B0 /* PuzzleBoardTileMovement.swift in Sources */,
 				0B7ABCE323659DBA00EF16B0 /* PuzzleBoardLauncher.swift in Sources */,
 				0B12F59323619C83009EDDD7 /* SceneDelegate.swift in Sources */,
 				0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */,
-				0B7ABCEF23672BB900EF16B0 /* TimerContainer.swift in Sources */,
+				0B7ABCF323687AEC00EF16B0 /* ScoreboardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
