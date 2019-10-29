@@ -46,13 +46,13 @@ class SplashController: UIViewController {
         view.addSubview(scoreButton)
         
         modeOneSelectionButton.translatesAutoresizingMaskIntoConstraints = false
-        modeOneSelectionButton.heightAnchor.constraint(equalToConstant: ButtonConstants.buttonSize).isActive = true // Height of the menuBar
+        modeOneSelectionButton.heightAnchor.constraint(equalToConstant: ButtonConstants.buttonSize).isActive = true
         modeOneSelectionButton.widthAnchor.constraint(equalToConstant: ButtonConstants.buttonSize).isActive = true
         modeOneSelectionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         modeOneSelectionButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -(2 * ButtonConstants.buttonSize)).isActive = true
         
         modeTwoSelectionButton.translatesAutoresizingMaskIntoConstraints = false
-        modeTwoSelectionButton.heightAnchor.constraint(equalToConstant: ButtonConstants.buttonSize).isActive = true // Height of the menuBar
+        modeTwoSelectionButton.heightAnchor.constraint(equalToConstant: ButtonConstants.buttonSize).isActive = true 
         modeTwoSelectionButton.widthAnchor.constraint(equalToConstant: ButtonConstants.buttonSize).isActive = true
         modeTwoSelectionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         modeTwoSelectionButton.centerYAnchor.constraint(equalTo: modeOneSelectionButton.centerYAnchor, constant: 2 * ButtonConstants.buttonSize).isActive = true
@@ -73,11 +73,11 @@ class SplashController: UIViewController {
         case modeOneSelectionButton:
             print("Mode 1 selected")
             puzzleBoardLauncher.modeSelected = .modeOne
-            puzzleBoardLauncher.showPuzzelBoard()
+            puzzleBoardLauncher.showPuzzleBoard()
         case modeTwoSelectionButton:
             print("Mode 2 selected")
             puzzleBoardLauncher.modeSelected = .modeTwo
-            puzzleBoardLauncher.showPuzzelBoard()
+            puzzleBoardLauncher.showPuzzleBoard()
         default: print("This does not work")
         }
     }
