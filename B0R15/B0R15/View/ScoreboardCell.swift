@@ -18,6 +18,7 @@ class ScoreboardCell: BaseCell {
     }()
     
     override func setupViews() {
+        super.setupViews()
         addSubview(imageView)
         
         let cellPadding: CGFloat = Constants.scoreboardCellPadding

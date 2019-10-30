@@ -13,6 +13,15 @@ class PuzzleBoardLauncher: NSObject {
     var modeSelected: GameMode?
     let puzzleBoardCellId = "cellId"
     
+    var testImages = ["0", "1", "0", "0",
+                      "0", "0", "0", "0",
+                      "0", "0", "0", "0",
+                      "0", "0", "0", "0"]
+    
+    var indexPath = [0, 0]
+    
+    var puzzleTileImages = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
+    
     lazy var backgroundView: UIView = {
         let backgroundView = UIView()
         backgroundView.alpha = 0
@@ -159,12 +168,12 @@ extension PuzzleBoardLauncher: UICollectionViewDataSource, UICollectionViewDeleg
 
     // Number of sections
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return Constants.numberOfSections
     }
     
     // Number of items in sections
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return Constants.numberOfItemInSection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -185,7 +194,17 @@ extension PuzzleBoardLauncher: UICollectionViewDataSource, UICollectionViewDeleg
     // Content of cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = puzzleBoard.dequeueReusableCell(withReuseIdentifier: puzzleBoardCellId, for: indexPath) as! PuzzleBoardCell
+        
+        let index = indexPath.section * Constants.numberOfItemInSection + indexPath.row
+        
+        cell.imageView.image = UIImage(named: testImages[index])
+        
         return cell
+    }
+    
+    // Sets up what to do when a cell gets tapped
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
     }
 
 }
