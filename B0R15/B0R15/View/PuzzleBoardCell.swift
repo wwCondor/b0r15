@@ -12,7 +12,8 @@ class PuzzleBoardCell: BaseCell {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "FloppyIcon")
+//        imageView.image = UIImage(named: "1")?.withRenderingMode(.alwaysTemplate)
+//        imageView.tintColor = UIColor.clear
         imageView.layer.cornerRadius = Constants.puzzleTileCornerRadius
         imageView.layer.masksToBounds = true
         return imageView
@@ -23,7 +24,13 @@ class PuzzleBoardCell: BaseCell {
         addSubview(imageView)
         
         imageView.backgroundColor = UIColor(named: Color.puzzleTile.rawValue)
-
+        
+//        if imageView.image != UIImage(named: "1") {
+//            imageView.backgroundColor = UIColor(named: Color.puzzleTile.rawValue)
+//        } else {
+//            imageView.backgroundColor = UIColor.clear
+//        }
+        
         let cellPadding: CGFloat = Constants.puzzleBoardCellPadding
         
 //        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))

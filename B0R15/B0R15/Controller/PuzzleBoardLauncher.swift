@@ -13,15 +13,11 @@ class PuzzleBoardLauncher: NSObject {
     var modeSelected: GameMode?
     let puzzleBoardCellId = "cellId"
     
-    var testImages = ["0", "1", "0", "0",
+    var testImages = ["0", "0", "0", "0",
                       "0", "0", "0", "0",
-                      "0", "0", "0", "0",
+                      "0", "0", "0", "1",
                       "0", "0", "0", "0"]
-    
-    var indexPath = [0, 0]
-    
-    var puzzleTileImages = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
-    
+        
     lazy var backgroundView: UIView = {
         let backgroundView = UIView()
         backgroundView.alpha = 0
@@ -196,7 +192,6 @@ extension PuzzleBoardLauncher: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = puzzleBoard.dequeueReusableCell(withReuseIdentifier: puzzleBoardCellId, for: indexPath) as! PuzzleBoardCell
         
         let index = indexPath.section * Constants.numberOfItemInSection + indexPath.row
-        
         cell.imageView.image = UIImage(named: testImages[index])
         
         return cell
