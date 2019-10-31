@@ -9,11 +9,12 @@
 import Foundation
 
 enum Color: String {
-    case backgroundColor = "BackgroundColor"
-    case modeOneButton = "ModeOneButton"
-    case modeTwoButton = "ModeTwoButton"
-    case scoreButton = "ScoreButton"
-    case puzzleBoard = "PuzzleBoard"
-    case puzzleTile = "PuzzleTile"
-    case timerView = "TimerView"
+    case backgroundColor    = "BackgroundColor"
+    case modeOneButton      = "ModeOneButton"
+    case modeTwoButton      = "ModeTwoButton"
+    case scoreButton        = "ScoreButton"
+    case puzzleBoard        = "PuzzleBoard"
+    case puzzleTile         = "PuzzleTile"
+    case timerView          = "TimerView"
+    case timeLabelText      = "TimeLabelText"
 }

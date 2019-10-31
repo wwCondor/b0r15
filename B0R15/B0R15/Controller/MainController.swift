@@ -15,22 +15,21 @@ class MainController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupViews()
+        setupView()
     }
     
-    lazy var modeOneSelectionButton: SelectionButton = {
-        let modeOneSelectionButton = SelectionButton()
-        modeOneSelectionButton.backgroundColor = UIColor(named: Color.modeOneButton.rawValue)
-        modeOneSelectionButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
-        return modeOneSelectionButton
+    lazy var modeOneButton: SelectionButton = {
+        let modeOneButton = SelectionButton()
+        modeOneButton.backgroundColor = UIColor(named: Color.modeOneButton.rawValue)
+        modeOneButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        return modeOneButton
     }()
     
-    lazy var modeTwoSelectionButton: SelectionButton = {
-        let modeTwoSelectionButton = SelectionButton()
-        modeTwoSelectionButton.backgroundColor = UIColor(named: Color.modeTwoButton.rawValue)
-        modeTwoSelectionButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
-        return modeTwoSelectionButton
+    lazy var modeTwoButton: SelectionButton = {
+        let modeTwoButton = SelectionButton()
+        modeTwoButton.backgroundColor = UIColor(named: Color.modeTwoButton.rawValue)
+        modeTwoButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        return modeTwoButton
     }()
     
     lazy var scoreButton: ScoreButton = {
@@ -39,28 +38,30 @@ class MainController: UIViewController {
         return scoreButton
     }()
     
-    func setupViews() {
+    private func setupView() {
         view.backgroundColor = UIColor(named: Color.backgroundColor.rawValue)
-        view.addSubview(modeOneSelectionButton)
-        view.addSubview(modeTwoSelectionButton)
+        view.addSubview(modeOneButton)
+        view.addSubview(modeTwoButton)
         view.addSubview(scoreButton)
+        setupLayout()
+    }
+    
+    private func setupLayout() {
+        modeOneButton.translatesAutoresizingMaskIntoConstraints = false
+        modeOneButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
+        modeOneButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
+        modeOneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        modeOneButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -(2 * Constants.buttonSize)).isActive = true
         
-        modeOneSelectionButton.translatesAutoresizingMaskIntoConstraints = false
-        modeOneSelectionButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
-        modeOneSelectionButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
-        modeOneSelectionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        modeOneSelectionButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -(2 * Constants.buttonSize)).isActive = true
-        
-        modeTwoSelectionButton.translatesAutoresizingMaskIntoConstraints = false
-        modeTwoSelectionButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
-        modeTwoSelectionButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
-        modeTwoSelectionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        modeTwoSelectionButton.centerYAnchor.constraint(equalTo: modeOneSelectionButton.centerYAnchor, constant: 2 * Constants.buttonSize).isActive = true
+        modeTwoButton.translatesAutoresizingMaskIntoConstraints = false
+        modeTwoButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
+        modeTwoButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
+        modeTwoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        modeTwoButton.centerYAnchor.constraint(equalTo: modeOneButton.centerYAnchor, constant: 2 * Constants.buttonSize).isActive = true
         
         scoreButton.translatesAutoresizingMaskIntoConstraints = false
         scoreButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(1.5 * Constants.scoreButtonSize)).isActive = true
         scoreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(1.5 * Constants.scoreButtonSize)).isActive = true
-        
     }
     
     @objc private func showScoreboard(sender: ScoreButton) {
@@ -69,16 +70,20 @@ class MainController: UIViewController {
     
     @objc private func startGame(sender: SelectionButton) {
         switch sender {
-        case modeOneSelectionButton:
+        case modeOneButton:
             print("Mode 1 selected")
             puzzleBoardLauncher.modeSelected = .modeOne
-            puzzleBoardLauncher.showPuzzleBoard()
-        case modeTwoSelectionButton:
+        case modeTwoButton:
             print("Mode 2 selected")
             puzzleBoardLauncher.modeSelected = .modeTwo
-            puzzleBoardLauncher.showPuzzleBoard()
         default: print("This does not work")
         }
+        setupGame()
+    }
+    
+    private func setupGame() {
+        puzzleBoardLauncher.showPuzzleBoard()
+        puzzleBoardLauncher.startTimer()
     }
     
 }

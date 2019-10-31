@@ -24,6 +24,7 @@
 		0B7ABCE82366CD9600EF16B0 /* PuzzleBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */; };
 		0B7ABCF323687AEC00EF16B0 /* ScoreboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */; };
 		0B7ABCF52368BBA500EF16B0 /* PuzzleBoardTileMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF42368BBA500EF16B0 /* PuzzleBoardTileMovement.swift */; };
+		0B7ABCF82369D0AF00EF16B0 /* ArrayMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF72369D0AF00EF16B0 /* ArrayMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardCell.swift; sourceTree = "<group>"; };
 		0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardCell.swift; sourceTree = "<group>"; };
 		0B7ABCF42368BBA500EF16B0 /* PuzzleBoardTileMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardTileMovement.swift; sourceTree = "<group>"; };
+		0B7ABCF72369D0AF00EF16B0 /* ArrayMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				0B12F5AD2361CA17009EDDD7 /* Colors.swift */,
 				0B12F5BE2363295A009EDDD7 /* GameModes.swift */,
 				0B12F5B62361D81E009EDDD7 /* Extensions.swift */,
+				0B7ABCF72369D0AF00EF16B0 /* ArrayMethod.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				0B7ABCE323659DBA00EF16B0 /* PuzzleBoardLauncher.swift in Sources */,
 				0B12F59323619C83009EDDD7 /* SceneDelegate.swift in Sources */,
 				0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */,
+				0B7ABCF82369D0AF00EF16B0 /* ArrayMethod.swift in Sources */,
 				0B7ABCF323687AEC00EF16B0 /* ScoreboardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

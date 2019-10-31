@@ -11,7 +11,6 @@ import UIKit
 class ScoreboardLauncher: NSObject {
     
     let scoreCellId = "cellId"
-//    let splashController = SplashController()
     
 //    lazy var fadeView: UIView = {
 //        let fadeView = UIView()
@@ -77,7 +76,7 @@ class ScoreboardLauncher: NSObject {
         }
     }
         
-    @objc func dismissScoreboard(sender: UISwipeGestureRecognizer) {
+    @objc private func dismissScoreboard(sender: UISwipeGestureRecognizer) {
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
