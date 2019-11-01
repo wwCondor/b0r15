@@ -10,13 +10,35 @@ import UIKit
 
 class PuzzleBoardLauncher: NSObject {
     
+//    var solutionTileSequence: [UIImage]?
+//    var gameTileSequence: [UIImage]?
+    
+    // Here we have an array of images
+    let gameImages: [UIImage] = [
+        UIImage(named: "Groovy")!,
+        UIImage(named: "Wizard")!,
+        UIImage(named: "Invader")!,
+        UIImage(named: "Knight")!
+    ]
+    
     var modeSelected: GameMode?
     let puzzleBoardCellId = "cellId"
     
-    var testImages = ["0", "0", "0", "0",
-                      "0", "0", "0", "0",
-                      "0", "0", "0", "1",
-                      "0", "0", "0", "0"]
+//    puzzleBoardLauncher.solutionTileSequence = dividedImage
+//    puzzleBoardLauncher.gameTileSequence = dividedImage.shuffled()
+//    let tileManager = TileManager()
+    
+    var solutionSequence: [UIImage]?
+    var testImages: [UIImage]?
+    
+//    lazy var testImages: [String] = ["0", "0", "0", "0",
+//                      "0", "0", "0", "0",
+//                      "0", "0", "0", "1",
+//                      "0", "0", "0", "0"]
+    
+//    lazy var testImages: [String] = [String]()
+    
+//    lazy var tileManager = TileManager()
     
     var seconds: Int = 0
     var timer = Timer()
@@ -82,7 +104,7 @@ class PuzzleBoardLauncher: NSObject {
         return timeLabel
     }()
     
-    func showPuzzleBoard() {        
+    func showPuzzleBoard() {
         guard let modeSelected = modeSelected else {
             return
         }
@@ -209,14 +231,18 @@ extension PuzzleBoardLauncher: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+//    let index = indexPath.section * Constants.numberOfItemInSection + indexPath.row
+//    cell.imageView.image = UIImage(named: testImages[index])
 
     // Content of cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = puzzleBoard.dequeueReusableCell(withReuseIdentifier: puzzleBoardCellId, for: indexPath) as! PuzzleBoardCell
-        
+
         let index = indexPath.section * Constants.numberOfItemInSection + indexPath.row
-        cell.imageView.image = UIImage(named: testImages[index])
         
+        cell.imageView.image = testImages![index]
+                    
         return cell
     }
     
@@ -228,6 +254,7 @@ extension PuzzleBoardLauncher: UICollectionViewDataSource, UICollectionViewDeleg
 }
 
 // MARK: Timer
+// Needs to be abstracted away from PuzzleboardLauncher
 extension PuzzleBoardLauncher {
      
     // This method needs to be called when timer needs to start
@@ -279,6 +306,73 @@ extension PuzzleBoardLauncher {
         
         return String(format:"%02i.%02i.%02i", hours, minutes, seconds)
     }
+    
+}
+
+
+// MARK: Image Provider
+extension PuzzleBoardLauncher {
+    
+    // from gameImages: [UIImage] we select 1 UIImage to be used for game
+    private func randomImageProvider() -> UIImage {
+        let shuffledImages = gameImages.shuffled()
+        let imageForGame = shuffledImages.first!
+        print("Random image provder provided: \(imageForGame)")
+        return imageForGame
+    }
+    
+    // imageForGame: UIImage needs to be divided into 16 tiles: [UIImage]
+    private func imageDivider() -> [UIImage] {
+        let image = randomImageProvider()
+        let gameTilesPerSection: Int = Constants.numberOfItemInSection
+        
+        let imageWidth: CGFloat = image.size.width
+        let imageHeigth: CGFloat = image.size.height
+        
+        let tileWidth = Int(imageWidth / CGFloat(gameTilesPerSection))
+        let tileHeight = Int(imageHeigth / CGFloat(gameTilesPerSection))
+        
+        var adjustedHeight = tileHeight
+        
+        let scale = Int(image.scale) // The scale factor of the image.
+        var images = [UIImage]() // The array of images returned
+        let cgImage = image.cgImage! // forces data reload into memory
+        
+        var y = 0
+        for row in 0 ..< gameTilesPerSection {
+            if row == (gameTilesPerSection - 1) {
+                adjustedHeight = Int(imageHeigth) - y
+            }
+            var adjustedWidth = tileWidth
+            var x = 0
+            for column in 0 ..< gameTilesPerSection {
+                if column == (gameTilesPerSection - 1) {
+                    adjustedWidth = Int(imageWidth) - x
+                }
+                let origin = CGPoint(x: x * scale, y: y * scale)
+                let size = CGSize(width: adjustedWidth * scale, height: adjustedHeight * scale)
+                let tileCgImage = cgImage.cropping(to: CGRect(origin: origin, size: size))!
+                images.append(UIImage(cgImage: tileCgImage, scale: image.scale, orientation: image.imageOrientation))
+                
+                x += tileWidth
+            }
+            y += tileHeight
+        }
+        
+        return images
+    }
+    
+    func createGameArrays() {
+        var dividedImage = imageDivider()
+        let voidImage: UIImage = #imageLiteral(resourceName: "1")
+
+        dividedImage.remove(at: dividedImage.count - 1)
+        dividedImage.append(voidImage)
+
+        solutionSequence = dividedImage
+        testImages = dividedImage.shuffled()
+    }
+    
     
 }
 

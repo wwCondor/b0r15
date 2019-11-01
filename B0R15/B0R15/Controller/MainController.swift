@@ -10,13 +10,44 @@ import UIKit
 
 class MainController: UIViewController {
     
+//    func createGameArray(completion: @escaping ([UIImage]?, Error?) -> Void) {
+//        var dividedImage = imageDivider()
+//        let voidImage: UIImage = #imageLiteral(resourceName: "1")
+//
+//        dividedImage.remove(at: dividedImage.count - 1)
+//        dividedImage.append(voidImage)
+//
+//        solutionTileSequence = dividedImage
+//        print(dividedImage)
+//    }
+    
     let puzzleBoardLauncher = PuzzleBoardLauncher()
     let scoreboardLauncher = ScoreboardLauncher()
+    
+//    let tileManager = TileManager()
+    
+//    let tileManager = TileManager.init()
+    
+//    lazy var solutionSequence: [UIImage] = tileManager.solutionTileSequence
+//    lazy var testImages: [UIImage] = tileManager.gameTileSequence
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+//        createGameArrays()
+//        tileManager.createGameArrays()
     }
+    
+//    func createGameArrays() {
+//        var dividedImage = tileManager.imageDivider()
+//        let voidImage: UIImage = #imageLiteral(resourceName: "1")
+//
+//        dividedImage.remove(at: dividedImage.count - 1)
+//        dividedImage.append(voidImage)
+//
+//        puzzleBoardLauncher.solutionSequence = dividedImage
+//        puzzleBoardLauncher.testImages = dividedImage.shuffled()
+//    }
     
     lazy var modeOneButton: SelectionButton = {
         let modeOneButton = SelectionButton()
@@ -84,6 +115,7 @@ class MainController: UIViewController {
     private func setupGame() {
         puzzleBoardLauncher.showPuzzleBoard()
         puzzleBoardLauncher.startTimer()
+        puzzleBoardLauncher.createGameArrays()
     }
     
 }

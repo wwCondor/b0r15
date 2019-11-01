@@ -6,7 +6,7 @@
 //  Copyright © 2019 Studio Willebrands. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct ArrayMethod {
     // This handles rearrangement of the tiles after a swipe gesture
@@ -15,6 +15,15 @@ struct ArrayMethod {
         let element = arr.remove(at: fromIndex)
         arr.insert(element, at: toIndex)
 
+        return arr
+    }
+    
+    static func swapLastImage(array: [UIImage]) -> [UIImage]{
+        var arr = array
+        let image = UIImage(named: "1")!
+        arr.remove(at: array.count - 1)
+        arr.append(image)
+        
         return arr
     }
     

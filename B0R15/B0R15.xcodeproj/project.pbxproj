@@ -25,6 +25,7 @@
 		0B7ABCF323687AEC00EF16B0 /* ScoreboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */; };
 		0B7ABCF52368BBA500EF16B0 /* PuzzleBoardTileMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF42368BBA500EF16B0 /* PuzzleBoardTileMovement.swift */; };
 		0B7ABCF82369D0AF00EF16B0 /* ArrayMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF72369D0AF00EF16B0 /* ArrayMethod.swift */; };
+		0B7ABCFC236C1E9600EF16B0 /* TileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCFB236C1E9600EF16B0 /* TileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardCell.swift; sourceTree = "<group>"; };
 		0B7ABCF42368BBA500EF16B0 /* PuzzleBoardTileMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardTileMovement.swift; sourceTree = "<group>"; };
 		0B7ABCF72369D0AF00EF16B0 /* ArrayMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayMethod.swift; sourceTree = "<group>"; };
+		0B7ABCFB236C1E9600EF16B0 /* TileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */,
 				0B12F5AF2361D222009EDDD7 /* ScoreButton.swift */,
+				0B7ABCFB236C1E9600EF16B0 /* TileManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				0B7ABCE323659DBA00EF16B0 /* PuzzleBoardLauncher.swift in Sources */,
 				0B12F59323619C83009EDDD7 /* SceneDelegate.swift in Sources */,
 				0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */,
+				0B7ABCFC236C1E9600EF16B0 /* TileManager.swift in Sources */,
 				0B7ABCF82369D0AF00EF16B0 /* ArrayMethod.swift in Sources */,
 				0B7ABCF323687AEC00EF16B0 /* ScoreboardCell.swift in Sources */,
 			);

@@ -27,7 +27,20 @@ extension PuzzleBoardLauncher {
             let bottomEdge = [12, 13, 14, 15]
             let leftEdge =   [ 0,  4,  8, 12]
             
-            guard let indexOfSpace = testImages.firstIndex(of:"1") else { return } // Here we find position of "1"
+            let voidImage: UIImage = #imageLiteral(resourceName: "1")
+            
+            // First we check wether we have images in the imageArray
+            guard var testImages = testImages else {
+                print("Unable to obtain array of images")
+                return
+            }
+            
+            // hen we check wether array contains the void image tile
+            guard let indexOfSpace = testImages.firstIndex(of: voidImage) else {
+                print("Image array does not contain an empty tile")
+                return
+            }
+            
             // MARK: Change to imageName
             
             switch sender.direction {
@@ -37,9 +50,8 @@ extension PuzzleBoardLauncher {
                     // MARK: Animation/Sound
                 } else {
                     testImages = ArrayMethod.rearrange(array: testImages, fromIndex: indexOfSpace, toIndex: indexOfSpace + 4)
-                    compareWithSolution()
-//                    print(testImages)
-//                    print("swiped up")
+                    print(testImages)
+                    print("swiped up")
                 }
 //                print(indexOfSpace)
                 
@@ -48,7 +60,8 @@ extension PuzzleBoardLauncher {
                     print("Already at the left edge of the board")
                 } else {
                     testImages = ArrayMethod.rearrange(array: testImages, fromIndex: indexOfSpace, toIndex: indexOfSpace - 1)
-                    compareWithSolution()
+                    print(testImages)
+                    print("swiped right")
                 }
                 
             case .down:
@@ -56,7 +69,8 @@ extension PuzzleBoardLauncher {
                     print("Already at the top edge of the board")
                 } else {
                     testImages = ArrayMethod.rearrange(array: testImages, fromIndex: indexOfSpace, toIndex: indexOfSpace - 4)
-                    compareWithSolution()
+                    print(testImages)
+                    print("swiped down")
                 }
 
             case .left:
@@ -64,13 +78,14 @@ extension PuzzleBoardLauncher {
                     print("Already at the right of the board")
                 } else {
                     testImages = ArrayMethod.rearrange(array: testImages, fromIndex: indexOfSpace, toIndex: indexOfSpace + 1)
-                    compareWithSolution()
+                    print(testImages)
+                    print("swiped left")
                 }
                 
             default:
                 print("This does not work")
             }
-            
+            compareWithSolution()
             puzzleBoard.performBatchUpdates({
                 puzzleBoard.reloadItems(at: self.puzzleBoard.indexPathsForVisibleItems)
             }, completion: nil)
@@ -79,14 +94,15 @@ extension PuzzleBoardLauncher {
     
     private func compareWithSolution() {
         // MARK: Solution
-        let solutionArray = ["0", "0", "0", "0",
-                             "0", "0", "0", "0",
-                             "0", "0", "0", "0",
-                             "0", "0", "0", "1"]
-        
-        if testImages == solutionArray {
-            print("Arrays match!")
-        }
+//        print("Setup compared to solution")
+//        let solutionArray = ["0", "0", "0", "0",
+//                             "0", "0", "0", "0",
+//                             "0", "0", "0", "0",
+//                             "0", "0", "0", "1"]
+//
+//        if testImages == solutionArray {
+//            print("Arrays match!")
+//        }
     }
     
 }
