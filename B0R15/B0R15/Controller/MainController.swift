@@ -10,44 +10,14 @@ import UIKit
 
 class MainController: UIViewController {
     
-//    func createGameArray(completion: @escaping ([UIImage]?, Error?) -> Void) {
-//        var dividedImage = imageDivider()
-//        let voidImage: UIImage = #imageLiteral(resourceName: "1")
-//
-//        dividedImage.remove(at: dividedImage.count - 1)
-//        dividedImage.append(voidImage)
-//
-//        solutionTileSequence = dividedImage
-//        print(dividedImage)
-//    }
-    
-    let puzzleBoardLauncher = PuzzleBoardLauncher()
-    let scoreboardLauncher = ScoreboardLauncher()
-    
-//    let tileManager = TileManager()
-    
-//    let tileManager = TileManager.init()
-    
-//    lazy var solutionSequence: [UIImage] = tileManager.solutionTileSequence
-//    lazy var testImages: [UIImage] = tileManager.gameTileSequence
+    let puzzleBoardManager = PuzzleBoardManager()
+    let scoreboardManager = ScoreboardManager()
+    let gameArrayProvider = GameArrayProvider()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-//        createGameArrays()
-//        tileManager.createGameArrays()
     }
-    
-//    func createGameArrays() {
-//        var dividedImage = tileManager.imageDivider()
-//        let voidImage: UIImage = #imageLiteral(resourceName: "1")
-//
-//        dividedImage.remove(at: dividedImage.count - 1)
-//        dividedImage.append(voidImage)
-//
-//        puzzleBoardLauncher.solutionSequence = dividedImage
-//        puzzleBoardLauncher.testImages = dividedImage.shuffled()
-//    }
     
     lazy var modeOneButton: SelectionButton = {
         let modeOneButton = SelectionButton()
@@ -96,26 +66,34 @@ class MainController: UIViewController {
     }
     
     @objc private func showScoreboard(sender: ScoreButton) {
-        scoreboardLauncher.presentScoreboard()
+        scoreboardManager.presentScoreboard()
     }
     
     @objc private func startGame(sender: SelectionButton) {
-        switch sender {
-        case modeOneButton:
-            print("Mode 1 selected")
-            puzzleBoardLauncher.modeSelected = .modeOne
-        case modeTwoButton:
-            print("Mode 2 selected")
-            puzzleBoardLauncher.modeSelected = .modeTwo
-        default: print("This does not work")
+        gameArrayProvider.createGameArrays()
+        
+        let gameArray = gameArrayProvider.gameSequence
+        let solutionArray = gameArrayProvider.solutionSequence
+        
+        if gameArray.isEmpty || solutionArray.isEmpty == false {
+            switch sender {
+            case modeOneButton:
+                print("Mode 1 selected")
+                puzzleBoardManager.gameSequence = gameArray
+                puzzleBoardManager.solutionSequence = solutionArray
+                puzzleBoardManager.modeSelected = .modeOne
+            case modeTwoButton:
+                print("Mode 2 selected")
+                puzzleBoardManager.gameSequence = gameArray
+                puzzleBoardManager.solutionSequence = solutionArray
+                puzzleBoardManager.modeSelected = .modeTwo
+            default: print("This does not work")
+            }
+            puzzleBoardManager.showPuzzleBoard()
+            puzzleBoardManager.startTimer()
+        } else {
+            print("Unable to transfer arrays into puzzleBoardManager")
         }
-        setupGame()
-    }
-    
-    private func setupGame() {
-        puzzleBoardLauncher.showPuzzleBoard()
-        puzzleBoardLauncher.startTimer()
-        puzzleBoardLauncher.createGameArrays()
     }
     
 }

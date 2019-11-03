@@ -21,7 +21,7 @@ struct Constants {
     static let puzzleTileCornerRadius: CGFloat = 10
     
     // padding
-    static let puzzleBoardCellPadding: CGFloat = 6
+    static let puzzleBoardCellPadding: CGFloat = 2
     static let scoreboardCellPadding: CGFloat = 4
     
     // puzzleBoard cells
