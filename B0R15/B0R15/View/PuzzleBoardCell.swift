@@ -12,8 +12,6 @@ class PuzzleBoardCell: BaseCell {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.image = UIImage(named: "1")?.withRenderingMode(.alwaysTemplate)
-//        imageView.tintColor = UIColor.clear
         imageView.layer.cornerRadius = Constants.puzzleTileCornerRadius
         imageView.layer.masksToBounds = true
         return imageView
@@ -23,18 +21,9 @@ class PuzzleBoardCell: BaseCell {
         super.setupViews()
         addSubview(imageView)
         
-        imageView.backgroundColor = UIColor(named: Color.puzzleTile.rawValue)
-        
-//        if imageView.image != UIImage(named: "1") {
-//            imageView.backgroundColor = UIColor(named: Color.puzzleTile.rawValue)
-//        } else {
-//            imageView.backgroundColor = UIColor.clear
-//        }
+        imageView.backgroundColor = UIColor(named: Colors.puzzleTile.name)
         
         let cellPadding: CGFloat = Constants.puzzleBoardCellPadding
-        
-//        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
-//        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         
         addConstraintsWithFormat("H:|-\(cellPadding)-[v0]-\(cellPadding)-|", views: imageView)
         addConstraintsWithFormat("V:|-\(cellPadding)-[v0]-\(cellPadding)-|", views: imageView)

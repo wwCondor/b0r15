@@ -10,27 +10,14 @@ import UIKit
 
 class ScoreboardManager: NSObject {
     
-    let scoreCellId = "cellId"
-    
-//    lazy var fadeView: UIView = {
-//        let fadeView = UIView()
-//        fadeView.backgroundColor = UIColor.blue
-//        fadeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissScoreboard(sender:))))
-//        return fadeView
-//    }()
-    
     let fadeView = UIView()
-
-    lazy var scoreboard: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let scoreboard = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    
+    lazy var scoreboard: Scoreboard = {
+        let scoreboard = Scoreboard()
         let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissScoreboard(sender:)))
         swipeDownGesture.direction = .down
         scoreboard.addGestureRecognizer(swipeDownGesture)
-        scoreboard.backgroundColor = UIColor.systemPink
-        scoreboard.register(ScoreboardCell.self, forCellWithReuseIdentifier: scoreCellId)
-        scoreboard.dataSource = self
-        scoreboard.delegate = self
+        scoreboard.backgroundColor = UIColor(named: Colors.scoreBoardBG.name)
         scoreboard.layer.masksToBounds = true
         return scoreboard
     }()
@@ -46,7 +33,7 @@ class ScoreboardManager: NSObject {
             
             fadeView.frame = window.frame
             fadeView.alpha = 0
-            fadeView.backgroundColor = UIColor.blue
+            fadeView.backgroundColor = UIColor.clear
             fadeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissScoreboard(sender:))))
             
             let scoreboardWidth = window.frame.width * (7/8)
@@ -95,34 +82,5 @@ class ScoreboardManager: NSObject {
     
 }
 
-extension ScoreboardManager: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    // Number of cell per row
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
 
-    // Size of cell
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = scoreboard.frame.width * (3/4)
-        let cellHeigth = scoreboard.frame.height / 6
-        return CGSize(width: cellWidth, height: cellHeigth)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-
-    // Content of cell
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = scoreboard.dequeueReusableCell(withReuseIdentifier: scoreCellId, for: indexPath) as! ScoreboardCell
-
-        return cell
-    }
-    
-}
  

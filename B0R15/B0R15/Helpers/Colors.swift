@@ -8,13 +8,28 @@
 
 import Foundation
 
-enum Color: String {
-    case backgroundColor    = "BackgroundColor"
-    case modeOneButton      = "ModeOneButton"
-    case modeTwoButton      = "ModeTwoButton"
-    case scoreButton        = "ScoreButton"
-    case puzzleBoard        = "PuzzleBoard"
-    case puzzleTile         = "PuzzleTile"
-    case timerView          = "TimerView"
-    case timeLabelText      = "TimeLabelText"
+enum Colors {
+    case backgroundColor
+    case modeOneButton
+    case modeTwoButton
+    case scoreButton
+    case puzzleBoard
+    case puzzleTile
+    case timerView
+    case timeLabelText
+    case scoreBoardBG
+    
+    var name: String {
+        switch self {
+        case .backgroundColor: return "BackgroundColor"
+        case .modeOneButton: return "ModeOneButton"
+        case .modeTwoButton: return "ModeTwoButton"
+        case .scoreButton: return "ScoreButton"
+        case .puzzleBoard: return "PuzzleBoard"
+        case .puzzleTile: return "PuzzleTile"
+        case .timerView: return "TimerView"
+        case .timeLabelText: return "TimeLabelText"
+        case .scoreBoardBG: return "ScoreBoardBG"
+        }
+    }
 }

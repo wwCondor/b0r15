@@ -10,6 +10,8 @@ import UIKit
 
 class PuzzleBoardManager: NSObject {
     
+    let dismissNotification = Notification.Name(rawValue: Constants.dismissNotificationKey)
+    
     lazy var gameArrayProvider = GameArrayProvider()
  
     var modeSelected: GameMode?
@@ -17,12 +19,6 @@ class PuzzleBoardManager: NSObject {
         
     var gameSequence: [UIImage] = []
     var solutionSequence: [UIImage] = []
-
-    // Should be moved to a Timer Class eventually
-    var seconds: Int = 0
-    var timer = Timer()
-    var timerIsRunning = false
-    var resumeTapped = false
         
     lazy var backgroundView: UIView = {
         let backgroundView = UIView()
@@ -31,16 +27,18 @@ class PuzzleBoardManager: NSObject {
         return backgroundView
     }()
 
+    // Turn into customView?
     lazy var puzzleBoardView: UIView = {
         let puzzleBoardView = UIView()
         let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissPuzzleBoard(sender:)))
         swipeRightGesture.direction = .right
         puzzleBoardView.addGestureRecognizer(swipeRightGesture)
-        puzzleBoardView.backgroundColor = UIColor(named: Color.puzzleBoard.rawValue)
+        puzzleBoardView.backgroundColor = UIColor(named: Colors.puzzleBoard.name)
         puzzleBoardView.layer.masksToBounds = true
         return puzzleBoardView
     }()
     
+    // Move to separate class?
     lazy var puzzleBoard: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let puzzleBoard = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -56,31 +54,11 @@ class PuzzleBoardManager: NSObject {
         puzzleBoard.addGestureRecognizer(swipeRightGesture)
         puzzleBoard.addGestureRecognizer(swipeDownGesture)
         puzzleBoard.addGestureRecognizer(swipeLeftGesture)
-        puzzleBoard.backgroundColor = UIColor(named: Color.puzzleBoard.rawValue)
+        puzzleBoard.backgroundColor = UIColor(named: Colors.puzzleBoard.name)
         puzzleBoard.register(PuzzleBoardCell.self, forCellWithReuseIdentifier: puzzleBoardCellId)
         puzzleBoard.dataSource = self
         puzzleBoard.delegate = self
         return puzzleBoard
-    }()
-
-    lazy var timerView: UIView = {
-        let timerView = UIView()
-        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissPuzzleBoard))
-        swipeLeftGesture.direction = .left
-        timerView.addGestureRecognizer(swipeLeftGesture)
-        timerView.backgroundColor = UIColor(named: Color.timerView.rawValue)
-        timerView.layer.masksToBounds = true
-        return timerView
-    }()
-    
-    lazy var timeLabel: UILabel = {
-        let timeLabel = UILabel()
-        timeLabel.backgroundColor = UIColor.clear
-        timeLabel.textColor = UIColor(named: Color.timeLabelText.rawValue)
-        timeLabel.text = "00.00.00"
-        timeLabel.textAlignment = .center
-        timeLabel.font = UIFont.systemFont(ofSize: 32.0, weight: .semibold)
-        return timeLabel
     }()
     
     func showPuzzleBoard() {
@@ -103,25 +81,12 @@ class PuzzleBoardManager: NSObject {
             window.addSubview(backgroundView)
             window.addSubview(puzzleBoardView)
             window.addSubview(puzzleBoard)
-            window.addSubview(timerView)
-            window.addSubview(timeLabel)
                     
             backgroundView.frame = window.frame
             
             let screenWidth = window.frame.width
             let screenHeigth = window.frame.height
             let padding = screenWidth / 16
-
-            let timerViewHeigth = screenHeigth * (1/4)
-            let timerViewXOffset: CGFloat = -screenWidth
-            let timerViewYOffset: CGFloat = screenHeigth * (3/4)
-            timerView.frame = CGRect(x: timerViewXOffset, y: timerViewYOffset, width: screenWidth, height: timerViewHeigth)
-            
-            let timeLabelWidth = screenWidth - 2 * padding
-            let timeLabelHeigth = timerViewHeigth / 2
-            let timeLabelXOffset: CGFloat = -screenWidth + padding
-            let timeLabelYOffset: CGFloat = screenHeigth * (3/4) + padding
-            timeLabel.frame = CGRect(x: timeLabelXOffset, y: timeLabelYOffset, width: timeLabelWidth, height: timeLabelHeigth)
             
             let puzzleViewHeigth = screenHeigth * (3/4) - padding
             let puzzleViewXOffset: CGFloat = screenWidth
@@ -139,13 +104,6 @@ class PuzzleBoardManager: NSObject {
             let shape = CAShapeLayer()
             shape.path = maskPath.cgPath
             puzzleBoardView.layer.mask = shape
-
-            let timerMaskPath = UIBezierPath(roundedRect: timerView.bounds,
-                                             byRoundingCorners: [.topRight],
-                                             cornerRadii: CGSize(width: Constants.sliderCornerRadius, height: Constants.sliderCornerRadius))
-            let timerShape = CAShapeLayer()
-            timerShape.path = timerMaskPath.cgPath
-            timerView.layer.mask = timerShape
             
             UIView.animate(
                 withDuration: 0.8,
@@ -155,19 +113,17 @@ class PuzzleBoardManager: NSObject {
                     self.backgroundView.alpha = 1
                     self.puzzleBoardView.center.x -= self.puzzleBoardView.bounds.width
                     self.puzzleBoard.center.x -= self.puzzleBoardView.bounds.width
-                    self.timerView.center.x += self.timerView.bounds.width
-                    self.timeLabel.center.x += self.timerView.bounds.width
             },
                 completion: nil)
         }
     }
     
     private func resetGame() {
+        NotificationCenter.default.post(name: dismissNotification, object: nil)
         gameArrayProvider.gameSequence.removeAll()
         gameArrayProvider.solutionSequence.removeAll()
         gameSequence.removeAll()
         solutionSequence.removeAll()
-        resetTimer()
     }
     
     @objc private func dismissPuzzleBoard(sender: UISwipeGestureRecognizer) {
@@ -180,8 +136,6 @@ class PuzzleBoardManager: NSObject {
                 self.backgroundView.alpha = 0
                 self.puzzleBoardView.center.x += self.puzzleBoardView.bounds.width
                 self.puzzleBoard.center.x += self.puzzleBoardView.bounds.width
-                self.timerView.center.x -= self.timerView.bounds.width
-                self.timeLabel.center.x -= self.timerView.bounds.width
         },
             completion: nil)
     }
@@ -239,69 +193,12 @@ extension PuzzleBoardManager: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
     
-    // Sets up what to do when a cell gets tapped
+    // Sets up what to do when a cell gets tapped (maybe add some hidden animation?)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
     }
 
 }
-
-// MARK: Timer
-// Needs to be abstracted away from PuzzleboardLauncher
-// In order to do this cleanly we need to set up the Timer Class as a delegate and implement the delegate methods in here
-extension PuzzleBoardManager {
-     
-    // This method needs to be called when timer needs to start
-    func startTimer() {
-        if timerIsRunning == false {
-           timer = Timer.scheduledTimer(
-            timeInterval: 1,
-            target: self,
-            selector: #selector(updateTimer),
-            userInfo: nil,
-            repeats: true)
-            timerIsRunning = true
-        }
-    }
-    
-    private func pauseTimer(sender: UIButton) {
-        // MARK: Not implemented
-        // This should be called when someone clicks on for example a settings menu during game or when home is pressed
-        
-        // resumeTapped starts false
-        if resumeTapped == false {
-            timer.invalidate()
-            resumeTapped = true
-            timerIsRunning = false // Otherwise after pause this is still true
-        } else {
-            startTimer()
-            resumeTapped = false
-        }
-    }
-    
-    private func resetTimer() {
-        // MARK: Save time to CoreData?
-        // Save only on the condition that game has ended
-        timerIsRunning = false
-        timer.invalidate()
-        seconds = 0
-        timeLabel.text = timeString(time: TimeInterval(seconds))
-    }
-     
-    @objc func updateTimer() {
-        seconds += 1
-        timeLabel.text = timeString(time: TimeInterval(seconds))
-    }
-    
-    private func timeString(time: TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        
-        return String(format:"%02i.%02i.%02i", hours, minutes, seconds)
-    }
-}
-
 
 // MARK: Tile Movement Logic
 extension PuzzleBoardManager {
@@ -321,7 +218,7 @@ extension PuzzleBoardManager {
             
             let voidImage: UIImage = #imageLiteral(resourceName: "1")
             
-            // First checl position of voidImage
+            // First check position of voidImage
             guard let indexOfSpace = gameSequence.firstIndex(of: voidImage) else {
                 print("Image array does not contain an empty tile")
                 return
@@ -367,7 +264,7 @@ extension PuzzleBoardManager {
                 print("This does not work")
             }
             updatePuzzleBoard()
-//            compareArrays()
+            compareArrays()
         }
     }
     
@@ -383,11 +280,12 @@ extension PuzzleBoardManager {
             // In here we should end game
             print("Arrays match!")
         } else {
-            //
+            
         }
     }
     
 }
+
 
 
 

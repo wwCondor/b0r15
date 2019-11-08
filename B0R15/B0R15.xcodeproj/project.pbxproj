@@ -20,6 +20,10 @@
 		0B12F5B72361D81E009EDDD7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5B62361D81E009EDDD7 /* Extensions.swift */; };
 		0B12F5BD23630C02009EDDD7 /* ScoreboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5BC23630C02009EDDD7 /* ScoreboardManager.swift */; };
 		0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5BE2363295A009EDDD7 /* GameModes.swift */; };
+		0B73945F23758FFC0087C95F /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B73945E23758FFC0087C95F /* Scoreboard.swift */; };
+		0B739461237591800087C95F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B739460237591800087C95F /* TimerView.swift */; };
+		0B7394642375A8DC0087C95F /* PuzzleBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7394632375A8DC0087C95F /* PuzzleBoardView.swift */; };
+		0B7394662375ACCA0087C95F /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7394652375ACCA0087C95F /* TimerManager.swift */; };
 		0B7ABCE323659DBA00EF16B0 /* PuzzleBoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCE223659DBA00EF16B0 /* PuzzleBoardManager.swift */; };
 		0B7ABCE82366CD9600EF16B0 /* PuzzleBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */; };
 		0B7ABCF323687AEC00EF16B0 /* ScoreboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */; };
@@ -43,6 +47,10 @@
 		0B12F5B62361D81E009EDDD7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0B12F5BC23630C02009EDDD7 /* ScoreboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardManager.swift; sourceTree = "<group>"; };
 		0B12F5BE2363295A009EDDD7 /* GameModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModes.swift; sourceTree = "<group>"; };
+		0B73945E23758FFC0087C95F /* Scoreboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
+		0B739460237591800087C95F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		0B7394632375A8DC0087C95F /* PuzzleBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardView.swift; sourceTree = "<group>"; };
+		0B7394652375ACCA0087C95F /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		0B7ABCE223659DBA00EF16B0 /* PuzzleBoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardManager.swift; sourceTree = "<group>"; };
 		0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardCell.swift; sourceTree = "<group>"; };
 		0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardCell.swift; sourceTree = "<group>"; };
@@ -100,6 +108,8 @@
 			children = (
 				0B12F59423619C83009EDDD7 /* MainController.swift */,
 				0B7ABCE223659DBA00EF16B0 /* PuzzleBoardManager.swift */,
+				0B7394652375ACCA0087C95F /* TimerManager.swift */,
+				0B7ABCFB236C1E9600EF16B0 /* GameArrayProvider.swift */,
 				0B12F5BC23630C02009EDDD7 /* ScoreboardManager.swift */,
 			);
 			path = Controller;
@@ -108,9 +118,6 @@
 		0B12F5AB2361C523009EDDD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */,
-				0B12F5AF2361D222009EDDD7 /* ScoreButton.swift */,
-				0B7ABCFB236C1E9600EF16B0 /* GameArrayProvider.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,7 +125,12 @@
 		0B12F5AC2361C53E009EDDD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */,
+				0B7394632375A8DC0087C95F /* PuzzleBoardView.swift */,
 				0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */,
+				0B739460237591800087C95F /* TimerView.swift */,
+				0B12F5AF2361D222009EDDD7 /* ScoreButton.swift */,
+				0B73945E23758FFC0087C95F /* Scoreboard.swift */,
 				0B7ABCF223687AEC00EF16B0 /* ScoreboardCell.swift */,
 			);
 			path = View;
@@ -214,13 +226,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B739461237591800087C95F /* TimerView.swift in Sources */,
 				0B12F5BD23630C02009EDDD7 /* ScoreboardManager.swift in Sources */,
 				0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */,
 				0B12F59523619C83009EDDD7 /* MainController.swift in Sources */,
 				0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */,
+				0B7394642375A8DC0087C95F /* PuzzleBoardView.swift in Sources */,
 				0B12F5B72361D81E009EDDD7 /* Extensions.swift in Sources */,
 				0B12F5A92361C3E8009EDDD7 /* SelectionButton.swift in Sources */,
 				0B7ABCE82366CD9600EF16B0 /* PuzzleBoardCell.swift in Sources */,
+				0B73945F23758FFC0087C95F /* Scoreboard.swift in Sources */,
 				0B12F59123619C83009EDDD7 /* AppDelegate.swift in Sources */,
 				0B12F5B02361D222009EDDD7 /* ScoreButton.swift in Sources */,
 				0B7ABCE323659DBA00EF16B0 /* PuzzleBoardManager.swift in Sources */,
@@ -229,6 +244,7 @@
 				0B7ABCFC236C1E9600EF16B0 /* GameArrayProvider.swift in Sources */,
 				0B7ABCF82369D0AF00EF16B0 /* ArrayMethod.swift in Sources */,
 				0B7ABCF323687AEC00EF16B0 /* ScoreboardCell.swift in Sources */,
+				0B7394662375ACCA0087C95F /* TimerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

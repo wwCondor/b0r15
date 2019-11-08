@@ -28,6 +28,11 @@ struct Constants {
     static let numberOfSections: Int = 4
     static let numberOfItemInSection: Int = 4
     
+    static let dismissNotificationKey = "dismiss"
+//    static let resetTimerNotificationKey = "resetTimer"
+//    static let pauseTimerNotificationKey = "pauseTimer"
+
+    
 }
 
 

@@ -9,8 +9,9 @@
 import UIKit
 
 class MainController: UIViewController {
-    
+        
     let puzzleBoardManager = PuzzleBoardManager()
+    let timerManager = TimerManager()
     let scoreboardManager = ScoreboardManager()
     let gameArrayProvider = GameArrayProvider()
 
@@ -21,14 +22,14 @@ class MainController: UIViewController {
     
     lazy var modeOneButton: SelectionButton = {
         let modeOneButton = SelectionButton()
-        modeOneButton.backgroundColor = UIColor(named: Color.modeOneButton.rawValue)
+        modeOneButton.backgroundColor = UIColor(named: Colors.modeOneButton.name)
         modeOneButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
         return modeOneButton
     }()
     
     lazy var modeTwoButton: SelectionButton = {
         let modeTwoButton = SelectionButton()
-        modeTwoButton.backgroundColor = UIColor(named: Color.modeTwoButton.rawValue)
+        modeTwoButton.backgroundColor = UIColor(named: Colors.modeTwoButton.name)
         modeTwoButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
         return modeTwoButton
     }()
@@ -40,7 +41,7 @@ class MainController: UIViewController {
     }()
     
     private func setupView() {
-        view.backgroundColor = UIColor(named: Color.backgroundColor.rawValue)
+        view.backgroundColor = UIColor(named: Colors.backgroundColor.name)
         view.addSubview(modeOneButton)
         view.addSubview(modeTwoButton)
         view.addSubview(scoreButton)
@@ -90,7 +91,8 @@ class MainController: UIViewController {
             default: print("This does not work")
             }
             puzzleBoardManager.showPuzzleBoard()
-            puzzleBoardManager.startTimer()
+            timerManager.showTimer()
+            timerManager.startTimer()
         } else {
             print("Unable to transfer arrays into puzzleBoardManager")
         }
