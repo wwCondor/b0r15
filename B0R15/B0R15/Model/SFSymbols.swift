@@ -9,5 +9,5 @@
 import UIKit
 
 enum SFSymbols {
-    static let dotMenu = UIImage(systemName: "ellipsis")
+    static let dotMenu = UIImage(systemName: "ellipsis", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold))
 }
