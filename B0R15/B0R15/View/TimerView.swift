@@ -20,20 +20,6 @@ class TimerView: CustomView {
         return timeLabel
     }()
     
-    //init from code
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setupView()
-//        setupConstraints()
-//    }
-//    
-//    //init from storyboard
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        setupView()
-//        setupConstraints()
-//    }
-    
     override func setupView() {
         addSubview(timeLabel)
         timeLabel.backgroundColor = UIColor.clear
@@ -44,6 +30,31 @@ class TimerView: CustomView {
         
         addConstraintsWithFormat("H:|-\(padding)-[v0]-\(padding)-|", views: timeLabel)
         addConstraintsWithFormat("V:|-\(padding)-[v0]-\(2 * padding)-|", views: timeLabel)
+
+    }
+}
+
+class CustomView: UIView {
+    
+    //init from code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+        setupConstraints()
+    }
+    
+    //init from storyboard
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
+        setupConstraints()
+    }
+    
+    func setupView() {
+
+    }
+    
+    func setupConstraints() {
 
     }
 }

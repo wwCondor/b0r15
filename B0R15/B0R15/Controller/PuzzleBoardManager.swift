@@ -23,16 +23,30 @@ class PuzzleBoardManager: NSObject {
     lazy var backgroundView: UIView = {
         let backgroundView = UIView()
         backgroundView.alpha = 0
+        // MARK: Refactor
+        // This responsibilty should eventually be held by the object(s) that handle(s) the end of a game e.g.
+        // - When user completes puzzle
+        // - When user opts to quit an uncompleted game (e.g. in a popdown (settings)menu)
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissPuzzleBoard(sender:))))
         return backgroundView
     }()
+    // For example:
+    @objc private func endGame(sender: UITapGestureRecognizer) {
+        // This method should post the notification that dismisses timer and puzzleboard
+        // As well as handle the logic to set up new game:
+//        NotificationCenter.default.post(name: dismissNotification, object: nil)
+//        gameArrayProvider.gameSequence.removeAll()
+//        gameArrayProvider.solutionSequence.removeAll()
+//        gameSequence.removeAll()
+//        solutionSequence.removeAll()
+    }
 
     // Turn into customView?
     lazy var puzzleBoardView: UIView = {
         let puzzleBoardView = UIView()
-        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissPuzzleBoard(sender:)))
-        swipeRightGesture.direction = .right
-        puzzleBoardView.addGestureRecognizer(swipeRightGesture)
+//        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissPuzzleBoard(sender:)))
+//        swipeRightGesture.direction = .right
+//        puzzleBoardView.addGestureRecognizer(swipeRightGesture)
         puzzleBoardView.backgroundColor = UIColor(named: Colors.puzzleBoard.name)
         puzzleBoardView.layer.masksToBounds = true
         return puzzleBoardView
@@ -126,7 +140,8 @@ class PuzzleBoardManager: NSObject {
         solutionSequence.removeAll()
     }
     
-    @objc private func dismissPuzzleBoard(sender: UISwipeGestureRecognizer) {
+    // This needs to be called 
+    @objc private func dismissPuzzleBoard(sender: UITapGestureRecognizer) {
         resetGame()
         UIView.animate(
             withDuration: 0.5,
@@ -153,12 +168,12 @@ extension PuzzleBoardManager: UICollectionViewDataSource, UICollectionViewDelega
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Constants.numberOfSections
     }
-    
+
     // Number of items in sections
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Constants.numberOfItemInSection
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
@@ -168,7 +183,7 @@ extension PuzzleBoardManager: UICollectionViewDataSource, UICollectionViewDelega
         let cellSize = puzzleBoard.frame.width / 4
         return CGSize(width: cellSize, height: cellSize)
     }
-    
+
     // Space between cells
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -179,7 +194,7 @@ extension PuzzleBoardManager: UICollectionViewDataSource, UICollectionViewDelega
         let cell = puzzleBoard.dequeueReusableCell(withReuseIdentifier: puzzleBoardCellId, for: indexPath) as! PuzzleBoardCell
 
         let index = indexPath.section * Constants.numberOfItemInSection + indexPath.row
-        
+
 //        let voidImage: UIImage = #imageLiteral(resourceName: "1")
 //
 //        if index == 1 {
@@ -187,12 +202,12 @@ extension PuzzleBoardManager: UICollectionViewDataSource, UICollectionViewDelega
 //        } else {
 //            cell.imageView.image = gameSequence[index]
 //        }
-        
+
         cell.imageView.image = gameSequence[index]
-        
+
         return cell
     }
-    
+
     // Sets up what to do when a cell gets tapped (maybe add some hidden animation?)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)

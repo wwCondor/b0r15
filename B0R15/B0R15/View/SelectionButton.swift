@@ -27,7 +27,7 @@ class SelectionButton: UIButton {
     
     private func addStyle() {
         translatesAutoresizingMaskIntoConstraints = false
-        layer.cornerRadius = Constants.buttonCornerRadius
+        layer.cornerRadius  = Constants.buttonCornerRadius
         layer.masksToBounds = true
     }
     

@@ -21,8 +21,17 @@ struct Constants {
     static let puzzleTileCornerRadius: CGFloat = 10
     
     // padding
-    static let puzzleBoardCellPadding: CGFloat = 8
-    static let scoreboardCellPadding: CGFloat = 3
+    static let puzzleBoardCellPadding: CGFloat = 2
+    static let scoreboardCellPadding: CGFloat = 4
+    
+    // puzzleBoard cells
+    static let numberOfSections: Int = 4
+    static let numberOfItemInSection: Int = 4
+    
+    static let dismissNotificationKey = "dismiss"
+//    static let resetTimerNotificationKey = "resetTimer"
+//    static let pauseTimerNotificationKey = "pauseTimer"
+
     
 }
 

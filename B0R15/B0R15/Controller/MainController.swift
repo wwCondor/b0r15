@@ -10,14 +10,18 @@ import UIKit
 
 class MainController: UIViewController {
         
-    let puzzleBoardManager = PuzzleBoardManager()
-    let timerManager = TimerManager()
-    let scoreboardManager = ScoreboardManager()
-    let gameArrayProvider = GameArrayProvider()
+    private let puzzleBoardManager = PuzzleBoardManager()
+    private let timerManager       = TimerManager()
+    private let scoreboardManager  = ScoreboardManager()
+    private let gameArrayProvider  = GameArrayProvider()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        
+        view.backgroundColor = UIColor(named: Colors.backgroundColor.name)
+        
+        configureView()
+
     }
     
     lazy var modeOneButton: SelectionButton = {
@@ -40,30 +44,23 @@ class MainController: UIViewController {
         return scoreButton
     }()
     
-    private func setupView() {
-        view.backgroundColor = UIColor(named: Colors.backgroundColor.name)
-        view.addSubview(modeOneButton)
-        view.addSubview(modeTwoButton)
-        view.addSubview(scoreButton)
-        setupLayout()
-    }
-    
-    private func setupLayout() {
-        modeOneButton.translatesAutoresizingMaskIntoConstraints = false
-        modeOneButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
-        modeOneButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
-        modeOneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        modeOneButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -(2 * Constants.buttonSize)).isActive = true
+    private func configureView() {
+        view.addSubviews(modeOneButton, modeTwoButton, scoreButton)
         
-        modeTwoButton.translatesAutoresizingMaskIntoConstraints = false
-        modeTwoButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
-        modeTwoButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize).isActive = true
-        modeTwoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        modeTwoButton.centerYAnchor.constraint(equalTo: modeOneButton.centerYAnchor, constant: 2 * Constants.buttonSize).isActive = true
-        
-        scoreButton.translatesAutoresizingMaskIntoConstraints = false
-        scoreButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(1.5 * Constants.scoreButtonSize)).isActive = true
-        scoreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(1.5 * Constants.scoreButtonSize)).isActive = true
+        NSLayoutConstraint.activate([
+            modeOneButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
+            modeOneButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
+            modeOneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+            modeOneButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -(2 * Constants.buttonSize)),
+            
+            modeTwoButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
+            modeTwoButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
+            modeTwoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+            modeTwoButton.centerYAnchor.constraint(equalTo: modeOneButton.centerYAnchor, constant: 2 * Constants.buttonSize),
+            
+            scoreButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(1.5 * Constants.scoreButtonSize)),
+            scoreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(1.5 * Constants.scoreButtonSize))
+        ])
     }
     
     @objc private func showScoreboard(sender: ScoreButton) {
