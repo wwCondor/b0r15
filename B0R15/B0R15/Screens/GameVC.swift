@@ -22,6 +22,7 @@ class GameVC: UIViewController {
         view.backgroundColor = .systemGreen
         
         configureView()
+        configureUIElements()
         
         addTargets()
     }
@@ -40,7 +41,6 @@ class GameVC: UIViewController {
             puzzleBoardContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             puzzleBoardContainerView.heightAnchor.constraint(equalTo: view.widthAnchor, constant: -60),
             puzzleBoardContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-
             
             startGameButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             startGameButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
@@ -60,9 +60,7 @@ class GameVC: UIViewController {
     }
     
     private func configureUIElements() {
-        DispatchQueue.main.async {
-//            self.add(childViewController: <#T##UIViewController#>, to: <#T##UIView#>)
-        }
+        DispatchQueue.main.async { self.add(childViewController: PuzzleBoardVC(), to: self.puzzleBoardContainerView) }
     }
     
     private func add(childViewController: UIViewController, to containerView: UIView) {
