@@ -29,6 +29,8 @@
 		0B7ABCFC236C1E9600EF16B0 /* GameArrayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCFB236C1E9600EF16B0 /* GameArrayProvider.swift */; };
 		0B9092DB247D5ABE009E10CE /* BShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9092DA247D5ABE009E10CE /* BShadowView.swift */; };
 		0B9092DD247D5D05009E10CE /* BTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9092DC247D5D05009E10CE /* BTextButton.swift */; };
+		0BBA1117247E6DF800F7D7FD /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA1116247E6DF800F7D7FD /* GameVC.swift */; };
+		0BBA111D247E712300F7D7FD /* PuzzleBoardContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA111C247E712300F7D7FD /* PuzzleBoardContainerView.swift */; };
 		0BD9F779247D11D800A5137C /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F778247D11D800A5137C /* UIView+Ext.swift */; };
 		0BD9F77E247D16CE00A5137C /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F77D247D16CE00A5137C /* SFSymbols.swift */; };
 		0BD9F782247D19F300A5137C /* PuzzleBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F781247D19F300A5137C /* PuzzleBoardVC.swift */; };
@@ -62,6 +64,8 @@
 		0B7ABCFB236C1E9600EF16B0 /* GameArrayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameArrayProvider.swift; sourceTree = "<group>"; };
 		0B9092DA247D5ABE009E10CE /* BShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BShadowView.swift; sourceTree = "<group>"; };
 		0B9092DC247D5D05009E10CE /* BTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTextButton.swift; sourceTree = "<group>"; };
+		0BBA1116247E6DF800F7D7FD /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
+		0BBA111C247E712300F7D7FD /* PuzzleBoardContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardContainerView.swift; sourceTree = "<group>"; };
 		0BD9F778247D11D800A5137C /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		0BD9F77D247D16CE00A5137C /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		0BD9F781247D19F300A5137C /* PuzzleBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardVC.swift; sourceTree = "<group>"; };
@@ -103,7 +107,7 @@
 				0B7ABCF623697B8A00EF16B0 /* Helpers */,
 				0B12F5AB2361C523009EDDD7 /* Model */,
 				0B12F5AC2361C53E009EDDD7 /* View */,
-				0B12F5AA2361C514009EDDD7 /* Controller */,
+				0B12F5AA2361C514009EDDD7 /* Controller (Delete) */,
 				0BD9F780247D199900A5137C /* Screens */,
 				0B12F59023619C83009EDDD7 /* AppDelegate.swift */,
 				0B12F59223619C83009EDDD7 /* SceneDelegate.swift */,
@@ -114,7 +118,7 @@
 			path = B0R15;
 			sourceTree = "<group>";
 		};
-		0B12F5AA2361C514009EDDD7 /* Controller */ = {
+		0B12F5AA2361C514009EDDD7 /* Controller (Delete) */ = {
 			isa = PBXGroup;
 			children = (
 				0B12F59423619C83009EDDD7 /* MainController.swift */,
@@ -123,7 +127,7 @@
 				0B7ABCFB236C1E9600EF16B0 /* GameArrayProvider.swift */,
 				0B12F5BC23630C02009EDDD7 /* ScoreboardManager.swift */,
 			);
-			path = Controller;
+			path = "Controller (Delete)";
 			sourceTree = "<group>";
 		};
 		0B12F5AB2361C523009EDDD7 /* Model */ = {
@@ -140,6 +144,7 @@
 		0B12F5AC2361C53E009EDDD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0BBA1118247E6E2100F7D7FD /* UIViewController */,
 				0B9092D7247D5986009E10CE /* UIView */,
 				0BD9F77F247D183C00A5137C /* UINavigationController */,
 				0BD9F77C247D14B500A5137C /* UIButton */,
@@ -168,8 +173,17 @@
 			isa = PBXGroup;
 			children = (
 				0B9092DA247D5ABE009E10CE /* BShadowView.swift */,
+				0BBA111C247E712300F7D7FD /* PuzzleBoardContainerView.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		0BBA1118247E6E2100F7D7FD /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0BD9F781247D19F300A5137C /* PuzzleBoardVC.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		0BD9F77C247D14B500A5137C /* UIButton */ = {
@@ -191,7 +205,7 @@
 		0BD9F780247D199900A5137C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				0BD9F781247D19F300A5137C /* PuzzleBoardVC.swift */,
+				0BBA1116247E6DF800F7D7FD /* GameVC.swift */,
 				0BD9F783247D2BA300A5137C /* ImageSelectionVC.swift */,
 			);
 			path = Screens;
@@ -274,6 +288,7 @@
 				0BD9F786247D2D7400A5137C /* BButton.swift in Sources */,
 				0B12F59523619C83009EDDD7 /* MainController.swift in Sources */,
 				0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */,
+				0BBA1117247E6DF800F7D7FD /* GameVC.swift in Sources */,
 				0B7394642375A8DC0087C95F /* PuzzleBoardView.swift in Sources */,
 				0B12F5A92361C3E8009EDDD7 /* SelectionButton.swift in Sources */,
 				0BD9F788247D304300A5137C /* UIImage+Ext.swift in Sources */,
@@ -291,6 +306,7 @@
 				0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */,
 				0B7ABCFC236C1E9600EF16B0 /* GameArrayProvider.swift in Sources */,
 				0B7ABCF82369D0AF00EF16B0 /* ArrayMethod.swift in Sources */,
+				0BBA111D247E712300F7D7FD /* PuzzleBoardContainerView.swift in Sources */,
 				0B7ABCF323687AEC00EF16B0 /* ScoreboardCell.swift in Sources */,
 				0B7394662375ACCA0087C95F /* TimerManager.swift in Sources */,
 			);
