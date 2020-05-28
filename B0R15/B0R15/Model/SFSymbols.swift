@@ -9,6 +9,8 @@
 import UIKit
 
 enum SFSymbols {
-    static let dotMenu = UIImage(systemName: "ellipsis", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold))
-    static let back    = UIImage(systemName: "arrow.left")
+    static let menuIcon    = UIImage(systemName: "ellipsis", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold))
+    static let backIcon    = UIImage(systemName: "arrow.left")
+    static let addIcon     = UIImage(systemName: "plus")
+    static let shuffleIcon = UIImage(systemName: "gobackward")
 }

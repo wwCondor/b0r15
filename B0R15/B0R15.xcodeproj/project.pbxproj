@@ -39,6 +39,7 @@
 		0BD9F784247D2BA300A5137C /* ImageSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F783247D2BA300A5137C /* ImageSelectionVC.swift */; };
 		0BD9F786247D2D7400A5137C /* BButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F785247D2D7400A5137C /* BButton.swift */; };
 		0BD9F788247D304300A5137C /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F787247D304300A5137C /* UIImage+Ext.swift */; };
+		0BF0E467247FADBF00537CE3 /* AddImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E466247FADBF00537CE3 /* AddImageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		0BD9F783247D2BA300A5137C /* ImageSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectionVC.swift; sourceTree = "<group>"; };
 		0BD9F785247D2D7400A5137C /* BButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BButton.swift; sourceTree = "<group>"; };
 		0BD9F787247D304300A5137C /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		0BF0E466247FADBF00537CE3 /* AddImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 			children = (
 				0BBA1116247E6DF800F7D7FD /* GameVC.swift */,
 				0BD9F783247D2BA300A5137C /* ImageSelectionVC.swift */,
+				0BF0E466247FADBF00537CE3 /* AddImageVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				0BD9F77E247D16CE00A5137C /* SFSymbols.swift in Sources */,
 				0B7ABCE82366CD9600EF16B0 /* PuzzleBoardCell.swift in Sources */,
 				0BD9F784247D2BA300A5137C /* ImageSelectionVC.swift in Sources */,
+				0BF0E467247FADBF00537CE3 /* AddImageVC.swift in Sources */,
 				0BBA1120247E8BD000F7D7FD /* PuzzleBoardCollectionVC.swift in Sources */,
 				0B9092DD247D5D05009E10CE /* BTextButton.swift in Sources */,
 				0B73945F23758FFC0087C95F /* Scoreboard.swift in Sources */,

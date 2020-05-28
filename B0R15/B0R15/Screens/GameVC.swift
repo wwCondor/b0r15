@@ -10,7 +10,7 @@ import UIKit
 
 class GameVC: UIViewController {
     
-    private let menuButton               = BButton(image: SFSymbols.dotMenu!)
+    private let menuButton               = BButton(image: SFSymbols.menuIcon!)
     private let puzzleBoardContainerView = PuzzleBoardContainerView()
     private let selectImageButton        = BTextButton(title: "Select Image")
     private let startGameButton          = BTextButton(title: "Start Game")
