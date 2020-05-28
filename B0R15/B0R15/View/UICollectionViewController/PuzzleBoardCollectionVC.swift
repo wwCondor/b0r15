@@ -11,7 +11,7 @@ import UIKit
 
 class PuzzleBoardCollectionVC: UICollectionViewController {
     
-    private let puzzleBoardCellId = "cellId"
+//    private let puzzleBoardCellId = "cellId"
     
 //    private let imageArrayProvider = GameArrayProvider()
     
@@ -21,7 +21,7 @@ class PuzzleBoardCollectionVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: puzzleBoardCellId)
+        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PuzzleBoardCell.identifier)
 
     }
 
@@ -49,7 +49,7 @@ class PuzzleBoardCollectionVC: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: puzzleBoardCellId, for: indexPath) as! PuzzleBoardCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PuzzleBoardCell.identifier, for: indexPath) as! PuzzleBoardCell
         let index = indexPath.section * Constants.numberOfItemInSection + indexPath.row
         
         cell.imageView.image = gameSequence[index]

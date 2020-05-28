@@ -91,10 +91,19 @@ class GameVC: UIViewController {
     
     private func presentImageSelectionVC() {
         let imageSelectionVC = ImageSelectionVC()
+        imageSelectionVC.delegate = self
         imageSelectionVC.title = "Select Image"
         let navigationController = UINavigationController(rootViewController: imageSelectionVC)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true)
     }
+    
+}
+
+extension GameVC: ImageSelectionDelegate {
+    func imageSelected(image: UIImage) {
+        print("Delegate Fired")
+    }
+    
     
 }

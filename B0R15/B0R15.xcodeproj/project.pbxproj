@@ -40,6 +40,8 @@
 		0BD9F786247D2D7400A5137C /* BButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F785247D2D7400A5137C /* BButton.swift */; };
 		0BD9F788247D304300A5137C /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F787247D304300A5137C /* UIImage+Ext.swift */; };
 		0BF0E467247FADBF00537CE3 /* AddImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E466247FADBF00537CE3 /* AddImageVC.swift */; };
+		0BF0E469247FCE2600537CE3 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E468247FCE2600537CE3 /* UIHelper.swift */; };
+		0BF0E46B247FCF7800537CE3 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E46A247FCF7800537CE3 /* ImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		0BD9F785247D2D7400A5137C /* BButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BButton.swift; sourceTree = "<group>"; };
 		0BD9F787247D304300A5137C /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		0BF0E466247FADBF00537CE3 /* AddImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageVC.swift; sourceTree = "<group>"; };
+		0BF0E468247FCE2600537CE3 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		0BF0E46A247FCF7800537CE3 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 				0B12F5AD2361CA17009EDDD7 /* Colors.swift */,
 				0B12F5BE2363295A009EDDD7 /* GameModes.swift */,
 				0BD9F77D247D16CE00A5137C /* SFSymbols.swift */,
+				0BF0E468247FCE2600537CE3 /* UIHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */,
+				0BF0E46A247FCF7800537CE3 /* ImageCell.swift */,
 				0BBA1123247E9C3100F7D7FD /* BCollectionViewCell.swift */,
 			);
 			path = UICollectionViewCell;
@@ -316,11 +322,13 @@
 			files = (
 				0B739461237591800087C95F /* TimerView.swift in Sources */,
 				0BD9F782247D19F300A5137C /* PuzzleBoardVC.swift in Sources */,
+				0BF0E46B247FCF7800537CE3 /* ImageCell.swift in Sources */,
 				0B12F5BD23630C02009EDDD7 /* ScoreboardManager.swift in Sources */,
 				0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */,
 				0BD9F786247D2D7400A5137C /* BButton.swift in Sources */,
 				0B12F59523619C83009EDDD7 /* MainController.swift in Sources */,
 				0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */,
+				0BF0E469247FCE2600537CE3 /* UIHelper.swift in Sources */,
 				0BBA1124247E9C3100F7D7FD /* BCollectionViewCell.swift in Sources */,
 				0BBA1117247E6DF800F7D7FD /* GameVC.swift in Sources */,
 				0B7394642375A8DC0087C95F /* PuzzleBoardView.swift in Sources */,

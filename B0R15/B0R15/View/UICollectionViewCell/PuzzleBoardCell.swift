@@ -10,6 +10,8 @@ import UIKit
 
 class PuzzleBoardCell: BCollectionViewCell {
     
+    static let identifier = "puzzleBoardId" 
+    
 //    private let imageView = UIImageView()
     
     let imageView: UIImageView = {
