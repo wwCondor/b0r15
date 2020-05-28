@@ -30,7 +30,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func configureNavigationBar() {
-        UINavigationBar.appearance().tintColor = .white
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemOrange] // Changes Text Color
+        navigationBarAppearance.barTintColor        = .systemBackground
+        navigationBarAppearance.tintColor           = .systemOrange // Changes button tint color
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -18,7 +18,8 @@ class PuzzleBoardVC: UIViewController {
     lazy var puzzleBoardCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let puzzleBoardCV = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        puzzleBoardCV.backgroundColor = UIColor(named: Colors.puzzleBoard.name)
+        puzzleBoardCV.translatesAutoresizingMaskIntoConstraints = false
+        puzzleBoardCV.backgroundColor = .systemPink
         puzzleBoardCV.register(PuzzleBoardCell.self, forCellWithReuseIdentifier: puzzleBoardCellId)
         puzzleBoardCV.delegate = self
         puzzleBoardCV.dataSource = self
@@ -36,11 +37,13 @@ class PuzzleBoardVC: UIViewController {
     }
     
     private func configureView() {
-        view.addSubviews()
+        view.addSubviews(puzzleBoardCollectionView)
 
-        
         NSLayoutConstraint.activate([
-
+            puzzleBoardCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            puzzleBoardCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            puzzleBoardCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            puzzleBoardCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
@@ -81,7 +84,7 @@ extension PuzzleBoardVC: UICollectionViewDataSource, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = puzzleBoardCollectionView.dequeueReusableCell(withReuseIdentifier: puzzleBoardCellId, for: indexPath) as! PuzzleBoardCell
 
-        let index = indexPath.section * Constants.numberOfItemInSection + indexPath.row
+//        let index = indexPath.section * Constants.numberOfItemInSection + indexPath.row
 
         //        let voidImage: UIImage = #imageLiteral(resourceName: "1")
         //
@@ -91,7 +94,7 @@ extension PuzzleBoardVC: UICollectionViewDataSource, UICollectionViewDelegate, U
         //            cell.imageView.image = gameSequence[index]
         //        }
 
-        cell.imageView.image = gameSequence[index]
+//        cell.imageView.image = gameSequence[index]
 
         return cell
     }

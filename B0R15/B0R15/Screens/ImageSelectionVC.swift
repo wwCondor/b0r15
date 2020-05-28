@@ -12,29 +12,29 @@ class ImageSelectionVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .systemPink
 
         configureNavigationBar()
 
     }
     
     private func configureNavigationBar() {
-        let menuButton = UIButton(type: UIButton.ButtonType.custom)
-        menuButton.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
-        let menuImage  = SFSymbols.dotMenu
-        //        menuButton.imageView?.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
-        menuButton.setImage(menuImage, for: .normal)
-        menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        let navBarButton = UIBarButtonItem(customView: menuButton)
-        navigationItem.rightBarButtonItem = navBarButton
+        let backButton = UIBarButtonItem(image: SFSymbols.back, style: .done, target: self, action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem = backButton
     }
     
-    private func addTargets() {
-        
+    @objc private func backButtonTapped() {
+        dismiss(animated: true, completion: nil)
     }
     
-    @objc private func menuButtonTapped() {
-        print("tapped")
-    }
+//    private func addTargets() {
+//
+//    }
+//    
+//    @objc private func menuButtonTapped() {
+//        print("tapped")
+//    }
 
 
 }

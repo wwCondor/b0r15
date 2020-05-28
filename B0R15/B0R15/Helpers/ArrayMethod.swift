@@ -38,27 +38,26 @@ import UIKit
 struct ArrayMethod {
     // This handles rearrangement of the tiles after a swipe gesture
     static func rearrange<T>(array: Array<T>, fromIndex: Int, toIndex: Int) -> Array<T>{
-        var arr = array
-        let element = arr.remove(at: fromIndex)
-        arr.insert(element, at: toIndex)
+        var editedArray = array
+        let element = editedArray.remove(at: fromIndex)
+        editedArray.insert(element, at: toIndex)
 
-        return arr
+        return editedArray
     }
     
     static func swapLastImage(array: [UIImage]) -> [UIImage]{
-        var arr = array
+        var editedArray = array
         let image = UIImage(named: "1")!
-        arr.remove(at: array.count - 1)
-        arr.append(image)
+        editedArray.remove(at: array.count - 1)
+        editedArray.append(image)
         
-        return arr
+        return editedArray
     }
     
     static func shuffleArray<T>(array: Array<T>) -> Array<T> {
-        var arr = array
-        arr.shuffle()
-        
-        return arr
+        var editedArray = array
+        editedArray.shuffle()
+        return editedArray
     }
     
 }

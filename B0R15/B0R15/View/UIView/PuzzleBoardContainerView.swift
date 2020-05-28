@@ -20,7 +20,7 @@ class PuzzleBoardContainerView: UIView {
     }
     
     private func configureView() {
-        backgroundColor = .systemBackground
+        backgroundColor = .white
         translatesAutoresizingMaskIntoConstraints = false
     }
 

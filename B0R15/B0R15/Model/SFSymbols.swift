@@ -10,4 +10,5 @@ import UIKit
 
 enum SFSymbols {
     static let dotMenu = UIImage(systemName: "ellipsis", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold))
+    static let back    = UIImage(systemName: "arrow.left")
 }

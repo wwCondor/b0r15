@@ -19,7 +19,7 @@ class GameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = .systemGray
         
         configureView()
         configureUIElements()
@@ -32,8 +32,8 @@ class GameVC: UIViewController {
         //        menuButton.addSubview(buttonShadow)
         
         NSLayoutConstraint.activate([
-            menuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            menuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            menuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            menuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             menuButton.heightAnchor.constraint(equalToConstant: 50),
             menuButton.widthAnchor.constraint(equalToConstant: 50),
             
@@ -43,13 +43,13 @@ class GameVC: UIViewController {
             puzzleBoardContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
             startGameButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            startGameButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            startGameButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            startGameButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            startGameButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             startGameButton.heightAnchor.constraint(equalToConstant: 50),
             
             selectImageButton.bottomAnchor.constraint(equalTo: startGameButton.topAnchor, constant: -20),
-            selectImageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            selectImageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            selectImageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            selectImageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             selectImageButton.heightAnchor.constraint(equalToConstant: 50),
             
             //            buttonShadow.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -86,6 +86,15 @@ class GameVC: UIViewController {
     
     @objc private func selectImageButtonTapped() {
         print("Select Image Button Tapped")
+        presentImageSelectionVC()
+    }
+    
+    private func presentImageSelectionVC() {
+        let imageSelectionVC = ImageSelectionVC()
+        imageSelectionVC.title = "Select Image"
+        let navigationController = UINavigationController(rootViewController: imageSelectionVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
     }
     
 }

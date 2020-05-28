@@ -13,13 +13,15 @@ class PuzzleBoardCollectionVC: UICollectionViewController {
     
     private let puzzleBoardCellId = "cellId"
     
+//    private let imageArrayProvider = GameArrayProvider()
+    
     var gameSequence: [UIImage] = []
     var solutionSequence: [UIImage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: puzzleBoardCellId)
+        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: puzzleBoardCellId)
 
     }
 
