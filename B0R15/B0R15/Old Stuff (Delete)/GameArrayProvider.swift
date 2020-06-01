@@ -15,12 +15,14 @@ import UIKit
 //                                    "0", "0", "0", "0",
 //                                    "0", "0", "0", "1"]
 
-class GameArrayProvider {
+final class GameArrayProvider {
     
     let puzzleBoardManager = PuzzleBoardManager()
     
     var solutionSequence: [UIImage] = []
     var gameSequence: [UIImage] = []
+    
+    var puzzleImageSelected: UIImage?
     
     let gameImages: [UIImage] = [
         UIImage(named: "Groovy")!,
@@ -37,9 +39,15 @@ class GameArrayProvider {
         return imageForGame
     }
     
-    // imageForGame needs to be divided into 16 tiles
-    private func imageDivider() -> [UIImage] {
-        let image = randomImageProvider()
+    /// ImageForGame needs to be divided into 16 tiles
+    /// - Returns: Returns an image array of the selected image which will be sed for the puzzle.
+    private func divide(image: UIImage) -> [UIImage] {
+//        guard let image = puzzleImageSelected else {
+//            print("failed to select image")
+//            return []
+//        }
+
+//        let image = randomImageProvider()
         let gameTilesPerSection: Int = Constants.numberOfItemInSection
         
         let imageWidth: CGFloat = image.size.width
@@ -78,8 +86,10 @@ class GameArrayProvider {
         return images
     }
     
-    private func provideSolutionSequence() -> [UIImage]{
-        let dividedImage = imageDivider()
+    /// Solution Array
+    /// - Returns: Solution array to which the game array is being compared after each user swipe action.
+    func createSolutionSequence(for image: UIImage) -> [UIImage]{
+        let dividedImage = divide(image: image)
         var arr = dividedImage
         let voidImage: UIImage = #imageLiteral(resourceName: "1")
         arr.remove(at: dividedImage.count - 1)
@@ -88,12 +98,18 @@ class GameArrayProvider {
         return arr
     }
     
-    func createGameArrays() {
-        let solutionArray = provideSolutionSequence()
-        let puzzleArray = solutionArray.shuffled()
-        
-        solutionSequence = solutionArray
-        gameSequence = puzzleArray
-    }
+    /// Creates two arrays of images from the selected image
+//    func createGameArray(for image: UIImage) -> [UIImage] {//}[UIImage] {
+////        var imageArrays: [UIImage] = []
+//
+//        let solutionArray = provideSolutionSequence(for: image)
+//        let puzzleArray = solutionArray.shuffled()
+//
+//        solutionSequence = solutionArray
+//        gameSequence = puzzleArray
+//
+//        return gameSequence
+//    }
+    
 }
 

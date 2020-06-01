@@ -68,31 +68,31 @@ class MainController: UIViewController {
     }
 
     @objc private func startGame(sender: SelectionButton) {
-        gameArrayProvider.createGameArrays()
-
-        let gameArray = gameArrayProvider.gameSequence
-        let solutionArray = gameArrayProvider.solutionSequence
-
-        if gameArray.isEmpty || solutionArray.isEmpty == false {
-            switch sender {
-            case modeOneButton:
-                print("Mode 1 selected")
-                puzzleBoardManager.gameSequence = gameArray
-                puzzleBoardManager.solutionSequence = solutionArray
-                puzzleBoardManager.modeSelected = .modeOne
-            case modeTwoButton:
-                print("Mode 2 selected")
-                puzzleBoardManager.gameSequence = gameArray
-                puzzleBoardManager.solutionSequence = solutionArray
-                puzzleBoardManager.modeSelected = .modeTwo
-            default: print("This does not work")
-            }
-            puzzleBoardManager.showPuzzleBoard()
-            timerManager.showTimer()
-            timerManager.startTimer()
-        } else {
-            print("Unable to transfer arrays into puzzleBoardManager")
-        }
+//        gameArrayProvider.createGameArrays()
+//
+//        let gameArray = gameArrayProvider.gameSequence
+//        let solutionArray = gameArrayProvider.solutionSequence
+//
+//        if gameArray.isEmpty || solutionArray.isEmpty == false {
+//            switch sender {
+//            case modeOneButton:
+//                print("Mode 1 selected")
+//                puzzleBoardManager.gameSequence = gameArray
+//                puzzleBoardManager.solutionSequence = solutionArray
+//                puzzleBoardManager.modeSelected = .modeOne
+//            case modeTwoButton:
+//                print("Mode 2 selected")
+//                puzzleBoardManager.gameSequence = gameArray
+//                puzzleBoardManager.solutionSequence = solutionArray
+//                puzzleBoardManager.modeSelected = .modeTwo
+//            default: print("This does not work")
+//            }
+//            puzzleBoardManager.showPuzzleBoard()
+//            timerManager.showTimer()
+//            timerManager.startTimer()
+//        } else {
+//            print("Unable to transfer arrays into puzzleBoardManager")
+//        }
     }
 
 }

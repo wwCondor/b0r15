@@ -13,7 +13,6 @@ class PuzzleBoardVC: UIViewController {
     let puzzleBoardCellId = "cellId"
     
     var gameSequence: [UIImage]     = []
-    var solutionSequence: [UIImage] = []
     
     lazy var puzzleBoardCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
