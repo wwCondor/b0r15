@@ -11,9 +11,7 @@ import UIKit
 class PuzzleBoardCell: BCollectionViewCell {
     
     static let identifier = "puzzleBoardId" 
-    
-//    private let imageView = UIImageView()
-    
+        
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = Constants.puzzleTileCornerRadius
@@ -27,9 +25,9 @@ class PuzzleBoardCell: BCollectionViewCell {
         
         imageView.backgroundColor = .systemYellow
         
-        let cellPadding: CGFloat = Constants.puzzleBoardCellPadding
+        let cellPadding: CGFloat = 2
+
+        imageView.pinToEdges(of: self, with: cellPadding)
         
-        addConstraintsWithFormat("H:|-\(cellPadding)-[v0]-\(cellPadding)-|", views: imageView)
-        addConstraintsWithFormat("V:|-\(cellPadding)-[v0]-\(cellPadding)-|", views: imageView)
     }
 }

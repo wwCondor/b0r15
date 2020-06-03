@@ -12,7 +12,7 @@ class PuzzleBoardVC: UIViewController {
     
     let puzzleBoardCellId = "cellId"
     
-    var gameSequence: [UIImage]     = []
+    var gameSequence: [UIImage] = []
     
     lazy var puzzleBoardCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -44,6 +44,12 @@ class PuzzleBoardVC: UIViewController {
             puzzleBoardCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
             puzzleBoardCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+    
+    func updatePuzzleBoard() {
+        puzzleBoardCollectionView.performBatchUpdates({
+            puzzleBoardCollectionView.reloadItems(at: self.puzzleBoardCollectionView.indexPathsForVisibleItems)
+        }, completion: nil)
     }
     
     private func addTargets() {

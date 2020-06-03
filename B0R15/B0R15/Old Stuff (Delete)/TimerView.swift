@@ -22,15 +22,8 @@ class TimerView: CustomView {
     
     override func setupView() {
         addSubview(timeLabel)
+        timeLabel.pinToEdges(of: self)
         timeLabel.backgroundColor = UIColor.clear
-    }
-    
-    override func setupConstraints() {
-        let padding = 30
-        
-        addConstraintsWithFormat("H:|-\(padding)-[v0]-\(padding)-|", views: timeLabel)
-        addConstraintsWithFormat("V:|-\(padding)-[v0]-\(2 * padding)-|", views: timeLabel)
-
     }
 }
 

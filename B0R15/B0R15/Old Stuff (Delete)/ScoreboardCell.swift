@@ -25,9 +25,8 @@ class ScoreboardCell: BCollectionViewCell {
         super.setupViews()
         addSubview(highScoreLabel)
         
-        let cellPadding: CGFloat = Constants.scoreboardCellPadding
+//        let cellPadding: CGFloat = Constants.scoreboardCellPadding
         
-        addConstraintsWithFormat("H:|-\(cellPadding)-[v0]-\(cellPadding)-|", views: highScoreLabel)
-        addConstraintsWithFormat("V:|-\(cellPadding)-[v0]-\(cellPadding)-|", views: highScoreLabel)
+        highScoreLabel.pinToEdges(of: self)
     }
 }

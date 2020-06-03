@@ -42,10 +42,9 @@ class Scoreboard: UIView {
     }
     
     func setupConstraints() {
-        let padding = 30
+//        let padding = 30
         
-        addConstraintsWithFormat("H:|[v0]|", views: scoreboard)
-        addConstraintsWithFormat("V:|-\(padding)-[v0]-\(padding)-|", views: scoreboard)
+        scoreboard.pinToEdges(of: self)
     }
 }
 

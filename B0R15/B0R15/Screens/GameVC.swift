@@ -16,7 +16,7 @@ class GameVC: UIViewController {
     private let startGameButton          = BTextButton(title: "Start Game")
     //    private let buttonShadow = BShadowView()
     
-    private var puzzleImage: UIImage = UIImage(named: "Groovy")!
+//    private var puzzleImage: UIImage = UIImage(named: "Groovy")!
     
     private let gameArrayProvider = GameArrayProvider()
     
@@ -105,12 +105,15 @@ class GameVC: UIViewController {
         present(navigationController, animated: true)
     }
     
+
+    
 }
 
 extension GameVC: ImageSelectionDelegate {
     func imageSelected(image: UIImage) {
         solutionSequence = gameArrayProvider.createSolutionSequence(for: image)
         gameSequence = solutionSequence.shuffled()
+        
 //        puzzleImage = image
         print("Delegate Fired, new image: \(image)")
         print(gameSequence)

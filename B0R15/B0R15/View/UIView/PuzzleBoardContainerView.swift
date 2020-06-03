@@ -9,6 +9,17 @@
 import UIKit
 
 class PuzzleBoardContainerView: UIView {
+    
+    lazy var puzzleBoardCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let puzzleBoardCV = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        puzzleBoardCV.translatesAutoresizingMaskIntoConstraints = false
+        puzzleBoardCV.backgroundColor = .systemPink
+        puzzleBoardCV.register(PuzzleBoardCell.self, forCellWithReuseIdentifier: PuzzleBoardCell.identifier)
+//        puzzleBoardCV.delegate = self
+//        puzzleBoardCV.dataSource = self
+        return puzzleBoardCV
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,3 +36,9 @@ class PuzzleBoardContainerView: UIView {
     }
 
 }
+
+//extension PuzzleBoardContainerView: UICollectionViewDelegate, UICollectionViewDataSource {
+//
+//
+//
+//}
