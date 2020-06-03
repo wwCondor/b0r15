@@ -76,9 +76,7 @@ class PuzzleBoardManager: NSObject {
     }()
     
     func showPuzzleBoard() {
-        guard let modeSelected = modeSelected else {
-            return
-        }
+        guard let modeSelected = modeSelected else { return }
         
         updatePuzzleBoard()
         

@@ -29,7 +29,7 @@ class GameVC: UIViewController {
         view.backgroundColor = .systemGray
         
         configureView()
-        configureUIElements()
+//        configureUIElements()
         
         addTargets()
     }
@@ -67,7 +67,7 @@ class GameVC: UIViewController {
     }
     
     private func configureUIElements() {
-        DispatchQueue.main.async { self.add(childViewController: PuzzleBoardVC(), to: self.puzzleBoardContainerView) }
+//        DispatchQueue.main.async { self.add(childViewController: PuzzleBoardVC(), to: self.puzzleBoardContainerView) }
     }
     
     private func add(childViewController: UIViewController, to containerView: UIView) {
@@ -112,7 +112,8 @@ class GameVC: UIViewController {
 extension GameVC: ImageSelectionDelegate {
     func imageSelected(image: UIImage) {
         solutionSequence = gameArrayProvider.createSolutionSequence(for: image)
-        gameSequence = solutionSequence.shuffled()
+        puzzleBoardContainerView.gameSequence = solutionSequence.shuffled()
+        puzzleBoardContainerView.updatePuzzleBoard()
         
 //        puzzleImage = image
         print("Delegate Fired, new image: \(image)")
