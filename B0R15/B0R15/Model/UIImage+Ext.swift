@@ -30,14 +30,14 @@ extension UIImage {
         return self
     }
     
-    /// Created a UIImage with a single color.
+    /// Creates a square tranparant UIImage.
     /// - Parameters:
-    ///   - size: Size of the Rectangle
-    public convenience init?(size: CGSize) {//(color: UIColor, size: CGSize) {
+    ///   - color: Color of the rectangle
+    ///   - size: Size of the rectangle
+    public convenience init?(color: UIColor, size: CGSize) {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-        UIColor.clear.setFill()
-//        color.setFill()
+        color.setFill()
         UIRectFill(rect)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

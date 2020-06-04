@@ -9,6 +9,7 @@
 import UIKit
 
 class ImageCell: BCollectionViewCell {
+        
     static let identifier = "imageCellId"
     
     let imageView = UIImageView()
@@ -22,10 +23,10 @@ class ImageCell: BCollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func set(follower: Follower) {
-//        avatarImageView.downloadImage(fromURL: follower.avatarUrl)
-//        usernameLabel.text = follower.login
-//    }
+    func setCornerRadius(to width: CGFloat) {
+        layer.cornerRadius  = width
+        layer.masksToBounds = true
+    }
     
     private func configureView() {
         backgroundColor = .systemPurple
@@ -40,7 +41,6 @@ class ImageCell: BCollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding),
-            
         ])
     }
 }

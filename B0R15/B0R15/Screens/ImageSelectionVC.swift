@@ -64,6 +64,7 @@ class ImageSelectionVC: UIViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, UIImage>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, image) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.identifier, for: indexPath) as! ImageCell
             cell.imageView.image = self.puzzleImages[indexPath.row]
+            cell.setCornerRadius(to: 8)
             return cell
         })
     }
@@ -89,10 +90,6 @@ class ImageSelectionVC: UIViewController {
 }
 
 extension ImageSelectionVC: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return puzzleImages.count
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
         delegate.imageSelected(image: puzzleImages[indexPath.row])

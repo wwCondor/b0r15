@@ -10,11 +10,13 @@ import UIKit
 
 class PuzzleBoardContainerView: UIView {
     
+//    static let 
+    
     var gameSequence: [UIImage]     = []
     var solutionSequence: [UIImage] = []
     
     lazy var puzzleBoardCV: UICollectionView = {
-        let layout = UIHelper.createFourColumnFlowLayout(in: self)
+        let layout = UICollectionViewFlowLayout()
         let puzzleBoardCV = UICollectionView(frame: .zero, collectionViewLayout: layout)
         puzzleBoardCV.translatesAutoresizingMaskIntoConstraints = false
         puzzleBoardCV.backgroundColor = .systemPink
@@ -64,10 +66,8 @@ class PuzzleBoardContainerView: UIView {
             let bottomEdge = [12, 13, 14, 15]
             let leftEdge =   [ 0,  4,  8, 12]
             
-            let voidImage: UIImage = #imageLiteral(resourceName: "1")
-            
-            // Check index of empty tile
-            guard let indexOfSpace = gameSequence.firstIndex(of: voidImage) else { return }
+            // Check index of transparant square
+            guard let indexOfSpace = gameSequence.firstIndex(of: VoidImage.clear) else { return }
             
             switch sender.direction {
             case .up:
@@ -89,9 +89,7 @@ class PuzzleBoardContainerView: UIView {
         }
 
     }
-    
-//    enum Direction { case up, down, left, right }
-    
+        
     private func repositionEmptyTile<T>(in array: Array<T>, fromIndex: Int, toIndex: Int) -> Array<T>{
         var newArray = array
         newArray.swapAt(fromIndex, toIndex)
@@ -124,17 +122,6 @@ extension PuzzleBoardContainerView: UICollectionViewDelegate, UICollectionViewDa
         return 4
     }
     
-    // Size of cell
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let cellSize = 220
-//        return CGSize(width: cellSize, height: cellSize)
-//    }
-    
-    // Space between cells
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = puzzleBoardCV.dequeueReusableCell(withReuseIdentifier: PuzzleBoardCell.identifier, for: indexPath) as! PuzzleBoardCell
         
@@ -145,8 +132,6 @@ extension PuzzleBoardContainerView: UICollectionViewDelegate, UICollectionViewDa
         } else {
             cell.imageView.backgroundColor = .clear
         }
-        
-        //        cell.imageView.image = gameSequence[index]
         
         return cell
     }

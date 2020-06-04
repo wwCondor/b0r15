@@ -17,8 +17,6 @@ import UIKit
 
 final class GameArrayProvider {
     
-    let puzzleBoardManager = PuzzleBoardManager()
-    
     var solutionSequence: [UIImage] = []
     var gameSequence: [UIImage] = []
     
@@ -42,24 +40,18 @@ final class GameArrayProvider {
     /// ImageForGame needs to be divided into 16 tiles
     /// - Returns: Returns an image array of the selected image which will be sed for the puzzle.
     private func divide(image: UIImage) -> [UIImage] {
-//        guard let image = puzzleImageSelected else {
-//            print("failed to select image")
-//            return []
-//        }
-
-//        let image = randomImageProvider()
         let gameTilesPerSection: Int = Constants.numberOfItemInSection
         
-        let imageWidth: CGFloat = image.size.width
+        let imageWidth: CGFloat  = image.size.width
         let imageHeigth: CGFloat = image.size.height
         
-        let tileWidth = Int(imageWidth / CGFloat(gameTilesPerSection))
+        let tileWidth  = Int(imageWidth / CGFloat(gameTilesPerSection))
         let tileHeight = Int(imageHeigth / CGFloat(gameTilesPerSection))
         
         var adjustedHeight = tileHeight
         
-        let scale = Int(image.scale) // The scale factor of the image.
-        var images = [UIImage]() // The array of images returned
+        let scale   = Int(image.scale) // The scale factor of the image.
+        var images  = [UIImage]() // The array of images returned
         let cgImage = image.cgImage! // forces data reload into memory
         
         var y = 0
@@ -82,7 +74,6 @@ final class GameArrayProvider {
             }
             y += tileHeight
         }
-//        print("Divided image: \(images)")
         return images
     }
     
@@ -91,27 +82,9 @@ final class GameArrayProvider {
     func createSolutionSequence(for image: UIImage) -> [UIImage]{
         let dividedImage = divide(image: image)
         var arr = dividedImage
-        let voidImage: UIImage = UIImage(size: CGSize(width: 200, height: 200))!
-
-//        let voidImage: UIImage = #imageLiteral(resourceName: "1")
         arr.remove(at: dividedImage.count - 1)
-        arr.append(voidImage)
-//        print("Divided image with void: \(arr)")
+        arr.append(VoidImage.clear)
         return arr
     }
-    
-    /// Creates two arrays of images from the selected image
-//    func createGameArray(for image: UIImage) -> [UIImage] {//}[UIImage] {
-////        var imageArrays: [UIImage] = []
-//
-//        let solutionArray = provideSolutionSequence(for: image)
-//        let puzzleArray = solutionArray.shuffled()
-//
-//        solutionSequence = solutionArray
-//        gameSequence = puzzleArray
-//
-//        return gameSequence
-//    }
-    
 }
 

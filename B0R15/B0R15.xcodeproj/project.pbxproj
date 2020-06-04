@@ -16,6 +16,7 @@
 		0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5AD2361CA17009EDDD7 /* Colors.swift */; };
 		0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5B22361D412009EDDD7 /* Constants.swift */; };
 		0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5BE2363295A009EDDD7 /* GameModes.swift */; };
+		0B714DE124895E6300CF66B7 /* VoidImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B714DE024895E6300CF66B7 /* VoidImage.swift */; };
 		0B7394642375A8DC0087C95F /* PuzzleBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7394632375A8DC0087C95F /* PuzzleBoardView.swift */; };
 		0B7394662375ACCA0087C95F /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7394652375ACCA0087C95F /* TimerManager.swift */; };
 		0B7ABCE323659DBA00EF16B0 /* PuzzleBoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCE223659DBA00EF16B0 /* PuzzleBoardManager.swift */; };
@@ -26,7 +27,6 @@
 		0B9092DD247D5D05009E10CE /* BTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9092DC247D5D05009E10CE /* BTextButton.swift */; };
 		0BBA1117247E6DF800F7D7FD /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA1116247E6DF800F7D7FD /* GameVC.swift */; };
 		0BBA111D247E712300F7D7FD /* PuzzleBoardContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA111C247E712300F7D7FD /* PuzzleBoardContainerView.swift */; };
-		0BBA1120247E8BD000F7D7FD /* PuzzleBoardCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA111F247E8BD000F7D7FD /* PuzzleBoardCollectionVC.swift */; };
 		0BBA1124247E9C3100F7D7FD /* BCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA1123247E9C3100F7D7FD /* BCollectionViewCell.swift */; };
 		0BD9F779247D11D800A5137C /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F778247D11D800A5137C /* UIView+Ext.swift */; };
 		0BD9F77E247D16CE00A5137C /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9F77D247D16CE00A5137C /* SFSymbols.swift */; };
@@ -51,6 +51,7 @@
 		0B12F5AD2361CA17009EDDD7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0B12F5B22361D412009EDDD7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0B12F5BE2363295A009EDDD7 /* GameModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModes.swift; sourceTree = "<group>"; };
+		0B714DE024895E6300CF66B7 /* VoidImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidImage.swift; sourceTree = "<group>"; };
 		0B7394632375A8DC0087C95F /* PuzzleBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardView.swift; sourceTree = "<group>"; };
 		0B7394652375ACCA0087C95F /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		0B7ABCE223659DBA00EF16B0 /* PuzzleBoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardManager.swift; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		0B9092DC247D5D05009E10CE /* BTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTextButton.swift; sourceTree = "<group>"; };
 		0BBA1116247E6DF800F7D7FD /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		0BBA111C247E712300F7D7FD /* PuzzleBoardContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardContainerView.swift; sourceTree = "<group>"; };
-		0BBA111F247E8BD000F7D7FD /* PuzzleBoardCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardCollectionVC.swift; sourceTree = "<group>"; };
 		0BBA1123247E9C3100F7D7FD /* BCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BD9F778247D11D800A5137C /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		0BD9F77D247D16CE00A5137C /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
@@ -138,6 +138,7 @@
 				0B12F5B22361D412009EDDD7 /* Constants.swift */,
 				0B12F5AD2361CA17009EDDD7 /* Colors.swift */,
 				0B12F5BE2363295A009EDDD7 /* GameModes.swift */,
+				0B714DE024895E6300CF66B7 /* VoidImage.swift */,
 				0BD9F77D247D16CE00A5137C /* SFSymbols.swift */,
 				0BF0E468247FCE2600537CE3 /* UIHelper.swift */,
 				0B7ABCFB236C1E9600EF16B0 /* GameArrayProvider.swift */,
@@ -149,10 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				0BBA1121247E965F00F7D7FD /* UICollectionViewCell */,
-				0BBA111E247E8B9800F7D7FD /* UICollectionViewController */,
 				0BBA1118247E6E2100F7D7FD /* UIViewController */,
 				0B9092D7247D5986009E10CE /* UIView */,
-				0BD9F77F247D183C00A5137C /* UINavigationController */,
 				0BD9F77C247D14B500A5137C /* UIButton */,
 			);
 			path = View;
@@ -173,14 +172,6 @@
 				0BD9F781247D19F300A5137C /* PuzzleBoardVC.swift */,
 			);
 			path = UIViewController;
-			sourceTree = "<group>";
-		};
-		0BBA111E247E8B9800F7D7FD /* UICollectionViewController */ = {
-			isa = PBXGroup;
-			children = (
-				0BBA111F247E8BD000F7D7FD /* PuzzleBoardCollectionVC.swift */,
-			);
-			path = UICollectionViewController;
 			sourceTree = "<group>";
 		};
 		0BBA1121247E965F00F7D7FD /* UICollectionViewCell */ = {
@@ -208,13 +199,6 @@
 				0B9092DC247D5D05009E10CE /* BTextButton.swift */,
 			);
 			path = UIButton;
-			sourceTree = "<group>";
-		};
-		0BD9F77F247D183C00A5137C /* UINavigationController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UINavigationController;
 			sourceTree = "<group>";
 		};
 		0BD9F780247D199900A5137C /* Screens */ = {
@@ -313,7 +297,6 @@
 				0B7ABCE82366CD9600EF16B0 /* PuzzleBoardCell.swift in Sources */,
 				0BD9F784247D2BA300A5137C /* ImageSelectionVC.swift in Sources */,
 				0BF0E467247FADBF00537CE3 /* AddImageVC.swift in Sources */,
-				0BBA1120247E8BD000F7D7FD /* PuzzleBoardCollectionVC.swift in Sources */,
 				0B9092DD247D5D05009E10CE /* BTextButton.swift in Sources */,
 				0B12F59123619C83009EDDD7 /* AppDelegate.swift in Sources */,
 				0B9092DB247D5ABE009E10CE /* BShadowView.swift in Sources */,
@@ -325,6 +308,7 @@
 				0B7ABCF82369D0AF00EF16B0 /* ArrayMethod.swift in Sources */,
 				0BBA111D247E712300F7D7FD /* PuzzleBoardContainerView.swift in Sources */,
 				0B7394662375ACCA0087C95F /* TimerManager.swift in Sources */,
+				0B714DE124895E6300CF66B7 /* VoidImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

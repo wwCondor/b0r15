@@ -15,9 +15,7 @@ class BCollectionViewCell: UICollectionViewCell {
         setupViews()
     }
     
-    func setupViews() {
-        
-    }
+    func setupViews() {}
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
