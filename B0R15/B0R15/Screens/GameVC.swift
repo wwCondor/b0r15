@@ -104,21 +104,19 @@ class GameVC: UIViewController {
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true)
     }
-    
-
-    
 }
 
 extension GameVC: ImageSelectionDelegate {
     func imageSelected(image: UIImage) {
         solutionSequence = gameArrayProvider.createSolutionSequence(for: image)
+        puzzleBoardContainerView.solutionSequence = solutionSequence
         puzzleBoardContainerView.gameSequence = solutionSequence.shuffled()
         puzzleBoardContainerView.updatePuzzleBoard()
         
 //        puzzleImage = image
         print("Delegate Fired, new image: \(image)")
-        print(gameSequence)
-        print(solutionSequence)
+        print(puzzleBoardContainerView.gameSequence)
+        print(puzzleBoardContainerView.solutionSequence)
     }
     
     

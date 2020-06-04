@@ -15,34 +15,27 @@ protocol ImageSelectionDelegate: class {
 
 class ImageSelectionVC: UIViewController {
     
+    enum Section { case main }
+    
     weak var delegate: ImageSelectionDelegate!
     
-    let puzzleImages: [UIImage] = [
+    private var puzzleImages: [UIImage] = [
         UIImage(named: "Groovy")!,
         UIImage(named: "Wizard")!,
         UIImage(named: "Invader")!,
         UIImage(named: "Knight")!
     ]
     
-    lazy var imageCollectionView: UICollectionView = {
-        let layout = UIHelper.createThreeColumnFlowLayout(in: view)
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .systemTeal
-        collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        return collectionView
-    }()
+    var collectionView: UICollectionView!
+    var dataSource: UICollectionViewDiffableDataSource<Section, UIImage>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .clear
-
         configureNavigationBar()
-        configureView()
-
+        configureCollectionView()
+        updateData()
+        configureDataSource()
     }
     
     private func configureNavigationBar() {
@@ -50,6 +43,36 @@ class ImageSelectionVC: UIViewController {
         let addImageButton = UIBarButtonItem(image: SFSymbols.addIcon, style: .plain, target: self, action: #selector(addButtonTapped))
         navigationItem.leftBarButtonItem = backButton
         navigationItem.rightBarButtonItem = addImageButton
+    }
+    
+    private func configureCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .systemPink
+        collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
+        collectionView.delegate = self
+        
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, UIImage>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, image) -> UICollectionViewCell? in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.identifier, for: indexPath) as! ImageCell
+            cell.imageView.image = self.puzzleImages[indexPath.row]
+            return cell
+        })
+    }
+    
+    func updateData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, UIImage>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(puzzleImages)
+        DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true)}
     }
     
     @objc private func backButtonTapped() {
@@ -63,43 +86,16 @@ class ImageSelectionVC: UIViewController {
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true)
     }
-
-    private func configureView() {
-        view.addSubview(imageCollectionView)
-        
-        NSLayoutConstraint.activate([
-            imageCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),// constant: 20),
-            imageCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-        
-    }
-  
 }
 
-extension ImageSelectionVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return puzzleImages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.identifier, for: indexPath) as! ImageCell
-        cell.backgroundColor = .systemPink
-        cell.layer.cornerRadius = 4
-        cell.layer.masksToBounds = true
-        #warning("Handle case with no images, e.g. when user deletes all")
-        cell.imageView.image = puzzleImages[indexPath.row]
-        return cell
-    }
+extension ImageSelectionVC: UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return puzzleImages.count
+//    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
         delegate.imageSelected(image: puzzleImages[indexPath.row])
         dismiss(animated: true, completion: nil)
-        
-//        let imageSelected = puzzleImages[indexPath.row]
-        // Pass this image through the delegate informing the GameVC an image was selected.
     }
-    
 }

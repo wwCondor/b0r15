@@ -10,11 +10,11 @@ import UIKit
 
 class PuzzleBoardContainerView: UIView {
     
-    var gameSequence: [UIImage] = []
+    var gameSequence: [UIImage]     = []
     var solutionSequence: [UIImage] = []
     
     lazy var puzzleBoardCV: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = UIHelper.createFourColumnFlowLayout(in: self)
         let puzzleBoardCV = UICollectionView(frame: .zero, collectionViewLayout: layout)
         puzzleBoardCV.translatesAutoresizingMaskIntoConstraints = false
         puzzleBoardCV.backgroundColor = .systemPink
@@ -90,7 +90,7 @@ class PuzzleBoardContainerView: UIView {
 
     }
     
-    enum Direction { case up, down, left, right }
+//    enum Direction { case up, down, left, right }
     
     private func repositionEmptyTile<T>(in array: Array<T>, fromIndex: Int, toIndex: Int) -> Array<T>{
         var newArray = array
@@ -125,15 +125,15 @@ extension PuzzleBoardContainerView: UICollectionViewDelegate, UICollectionViewDa
     }
     
     // Size of cell
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = 220
-        return CGSize(width: cellSize, height: cellSize)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let cellSize = 220
+//        return CGSize(width: cellSize, height: cellSize)
+//    }
     
     // Space between cells
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 0
+//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = puzzleBoardCV.dequeueReusableCell(withReuseIdentifier: PuzzleBoardCell.identifier, for: indexPath) as! PuzzleBoardCell

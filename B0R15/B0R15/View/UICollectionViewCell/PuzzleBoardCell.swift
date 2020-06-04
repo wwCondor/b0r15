@@ -23,7 +23,7 @@ class PuzzleBoardCell: BCollectionViewCell {
         super.setupViews()
         addSubview(imageView)
         
-        imageView.backgroundColor = .blue
+        imageView.backgroundColor = .clear
         imageView.pinToEdges(of: self, padding: 2)
     }
 }
