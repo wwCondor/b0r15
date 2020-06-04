@@ -9,20 +9,11 @@
 /* Begin PBXBuildFile section */
 		0B12F59123619C83009EDDD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F59023619C83009EDDD7 /* AppDelegate.swift */; };
 		0B12F59323619C83009EDDD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F59223619C83009EDDD7 /* SceneDelegate.swift */; };
-		0B12F59523619C83009EDDD7 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F59423619C83009EDDD7 /* MainController.swift */; };
 		0B12F59A23619C84009EDDD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B12F59923619C84009EDDD7 /* Assets.xcassets */; };
 		0B12F59D23619C84009EDDD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B12F59B23619C84009EDDD7 /* LaunchScreen.storyboard */; };
-		0B12F5A92361C3E8009EDDD7 /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */; };
-		0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5AD2361CA17009EDDD7 /* Colors.swift */; };
 		0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5B22361D412009EDDD7 /* Constants.swift */; };
-		0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B12F5BE2363295A009EDDD7 /* GameModes.swift */; };
 		0B714DE124895E6300CF66B7 /* VoidImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B714DE024895E6300CF66B7 /* VoidImage.swift */; };
-		0B7394642375A8DC0087C95F /* PuzzleBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7394632375A8DC0087C95F /* PuzzleBoardView.swift */; };
-		0B7394662375ACCA0087C95F /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7394652375ACCA0087C95F /* TimerManager.swift */; };
-		0B7ABCE323659DBA00EF16B0 /* PuzzleBoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCE223659DBA00EF16B0 /* PuzzleBoardManager.swift */; };
 		0B7ABCE82366CD9600EF16B0 /* PuzzleBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */; };
-		0B7ABCF82369D0AF00EF16B0 /* ArrayMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCF72369D0AF00EF16B0 /* ArrayMethod.swift */; };
-		0B7ABCFC236C1E9600EF16B0 /* GameArrayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABCFB236C1E9600EF16B0 /* GameArrayProvider.swift */; };
 		0B9092DB247D5ABE009E10CE /* BShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9092DA247D5ABE009E10CE /* BShadowView.swift */; };
 		0B9092DD247D5D05009E10CE /* BTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9092DC247D5D05009E10CE /* BTextButton.swift */; };
 		0BBA1117247E6DF800F7D7FD /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA1116247E6DF800F7D7FD /* GameVC.swift */; };
@@ -43,21 +34,12 @@
 		0B12F58D23619C83009EDDD7 /* B0R15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = B0R15.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B12F59023619C83009EDDD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B12F59223619C83009EDDD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0B12F59423619C83009EDDD7 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		0B12F59923619C84009EDDD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B12F59C23619C84009EDDD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B12F59E23619C84009EDDD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
-		0B12F5AD2361CA17009EDDD7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0B12F5B22361D412009EDDD7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		0B12F5BE2363295A009EDDD7 /* GameModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModes.swift; sourceTree = "<group>"; };
 		0B714DE024895E6300CF66B7 /* VoidImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidImage.swift; sourceTree = "<group>"; };
-		0B7394632375A8DC0087C95F /* PuzzleBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardView.swift; sourceTree = "<group>"; };
-		0B7394652375ACCA0087C95F /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
-		0B7ABCE223659DBA00EF16B0 /* PuzzleBoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardManager.swift; sourceTree = "<group>"; };
 		0B7ABCE72366CD9600EF16B0 /* PuzzleBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBoardCell.swift; sourceTree = "<group>"; };
-		0B7ABCF72369D0AF00EF16B0 /* ArrayMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayMethod.swift; sourceTree = "<group>"; };
-		0B7ABCFB236C1E9600EF16B0 /* GameArrayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameArrayProvider.swift; sourceTree = "<group>"; };
 		0B9092DA247D5ABE009E10CE /* BShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BShadowView.swift; sourceTree = "<group>"; };
 		0B9092DC247D5D05009E10CE /* BTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTextButton.swift; sourceTree = "<group>"; };
 		0BBA1116247E6DF800F7D7FD /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
@@ -106,7 +88,6 @@
 			children = (
 				0B12F5AB2361C523009EDDD7 /* Model */,
 				0B12F5AC2361C53E009EDDD7 /* View */,
-				0B12F5AA2361C514009EDDD7 /* Old Stuff (Delete) */,
 				0BD9F780247D199900A5137C /* Screens */,
 				0B12F59023619C83009EDDD7 /* AppDelegate.swift */,
 				0B12F59223619C83009EDDD7 /* SceneDelegate.swift */,
@@ -117,31 +98,15 @@
 			path = B0R15;
 			sourceTree = "<group>";
 		};
-		0B12F5AA2361C514009EDDD7 /* Old Stuff (Delete) */ = {
-			isa = PBXGroup;
-			children = (
-				0BBA1122247E979F00F7D7FD /* CheckedForDelete */,
-				0B12F59423619C83009EDDD7 /* MainController.swift */,
-				0B7ABCE223659DBA00EF16B0 /* PuzzleBoardManager.swift */,
-				0B7394652375ACCA0087C95F /* TimerManager.swift */,
-				0B12F5A82361C3E8009EDDD7 /* SelectionButton.swift */,
-			);
-			path = "Old Stuff (Delete)";
-			sourceTree = "<group>";
-		};
 		0B12F5AB2361C523009EDDD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				0BD9F787247D304300A5137C /* UIImage+Ext.swift */,
 				0BD9F778247D11D800A5137C /* UIView+Ext.swift */,
-				0B7ABCF72369D0AF00EF16B0 /* ArrayMethod.swift */,
 				0B12F5B22361D412009EDDD7 /* Constants.swift */,
-				0B12F5AD2361CA17009EDDD7 /* Colors.swift */,
-				0B12F5BE2363295A009EDDD7 /* GameModes.swift */,
 				0B714DE024895E6300CF66B7 /* VoidImage.swift */,
 				0BD9F77D247D16CE00A5137C /* SFSymbols.swift */,
 				0BF0E468247FCE2600537CE3 /* UIHelper.swift */,
-				0B7ABCFB236C1E9600EF16B0 /* GameArrayProvider.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,14 +147,6 @@
 				0BBA1123247E9C3100F7D7FD /* BCollectionViewCell.swift */,
 			);
 			path = UICollectionViewCell;
-			sourceTree = "<group>";
-		};
-		0BBA1122247E979F00F7D7FD /* CheckedForDelete */ = {
-			isa = PBXGroup;
-			children = (
-				0B7394632375A8DC0087C95F /* PuzzleBoardView.swift */,
-			);
-			path = CheckedForDelete;
 			sourceTree = "<group>";
 		};
 		0BD9F77C247D14B500A5137C /* UIButton */ = {
@@ -283,15 +240,10 @@
 			files = (
 				0BD9F782247D19F300A5137C /* PuzzleBoardVC.swift in Sources */,
 				0BF0E46B247FCF7800537CE3 /* ImageCell.swift in Sources */,
-				0B12F5BF2363295A009EDDD7 /* GameModes.swift in Sources */,
 				0BD9F786247D2D7400A5137C /* BButton.swift in Sources */,
-				0B12F59523619C83009EDDD7 /* MainController.swift in Sources */,
-				0B12F5AE2361CA17009EDDD7 /* Colors.swift in Sources */,
 				0BF0E469247FCE2600537CE3 /* UIHelper.swift in Sources */,
 				0BBA1124247E9C3100F7D7FD /* BCollectionViewCell.swift in Sources */,
 				0BBA1117247E6DF800F7D7FD /* GameVC.swift in Sources */,
-				0B7394642375A8DC0087C95F /* PuzzleBoardView.swift in Sources */,
-				0B12F5A92361C3E8009EDDD7 /* SelectionButton.swift in Sources */,
 				0BD9F788247D304300A5137C /* UIImage+Ext.swift in Sources */,
 				0BD9F77E247D16CE00A5137C /* SFSymbols.swift in Sources */,
 				0B7ABCE82366CD9600EF16B0 /* PuzzleBoardCell.swift in Sources */,
@@ -301,13 +253,9 @@
 				0B12F59123619C83009EDDD7 /* AppDelegate.swift in Sources */,
 				0B9092DB247D5ABE009E10CE /* BShadowView.swift in Sources */,
 				0BD9F779247D11D800A5137C /* UIView+Ext.swift in Sources */,
-				0B7ABCE323659DBA00EF16B0 /* PuzzleBoardManager.swift in Sources */,
 				0B12F59323619C83009EDDD7 /* SceneDelegate.swift in Sources */,
 				0B12F5B32361D412009EDDD7 /* Constants.swift in Sources */,
-				0B7ABCFC236C1E9600EF16B0 /* GameArrayProvider.swift in Sources */,
-				0B7ABCF82369D0AF00EF16B0 /* ArrayMethod.swift in Sources */,
 				0BBA111D247E712300F7D7FD /* PuzzleBoardContainerView.swift in Sources */,
-				0B7394662375ACCA0087C95F /* TimerManager.swift in Sources */,
 				0B714DE124895E6300CF66B7 /* VoidImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

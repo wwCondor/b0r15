@@ -10,11 +10,11 @@ import UIKit
 
 class PuzzleBoardCell: BCollectionViewCell {
     
-    static let identifier = "puzzleBoardId" 
+    static let identifier = "puzzleBoardId"
         
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = Constants.puzzleTileCornerRadius
+        imageView.layer.cornerRadius  = 10
         imageView.layer.masksToBounds = true
         return imageView
     }()

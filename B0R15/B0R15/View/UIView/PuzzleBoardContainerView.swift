@@ -9,9 +9,7 @@
 import UIKit
 
 class PuzzleBoardContainerView: UIView {
-    
-//    static let 
-    
+        
     var gameSequence: [UIImage]     = []
     var solutionSequence: [UIImage] = []
     
@@ -41,7 +39,7 @@ class PuzzleBoardContainerView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(puzzleBoardCV)
-        puzzleBoardCV.pinToEdges(of: self)
+        puzzleBoardCV.pinToEdges(of: self, padding: 0)
     }
     
     private func addGestureRecognizers() {
@@ -67,27 +65,26 @@ class PuzzleBoardContainerView: UIView {
             let leftEdge =   [ 0,  4,  8, 12]
             
             // Check index of transparant square
-            guard let indexOfSpace = gameSequence.firstIndex(of: VoidImage.clear) else { return }
+            guard let index = gameSequence.firstIndex(of: VoidImage.clear) else { return }
             
             switch sender.direction {
             case .up:
-                guard bottomEdge.contains(indexOfSpace) == false else { return }
-                gameSequence = repositionEmptyTile(in: gameSequence, fromIndex: indexOfSpace, toIndex: indexOfSpace + 4)
+                guard bottomEdge.contains(index) == false else { return }
+                gameSequence = repositionEmptyTile(in: gameSequence, fromIndex: index, toIndex: index + 4)
             case .right:
-                guard leftEdge.contains(indexOfSpace) == false else { return }
-                gameSequence = repositionEmptyTile(in: gameSequence, fromIndex: indexOfSpace, toIndex: indexOfSpace - 1)
+                guard leftEdge.contains(index) == false else { return }
+                gameSequence = repositionEmptyTile(in: gameSequence, fromIndex: index, toIndex: index - 1)
             case .down:
-                guard topEdge.contains(indexOfSpace) == false else { return }
-                    gameSequence = repositionEmptyTile(in: gameSequence, fromIndex: indexOfSpace, toIndex: indexOfSpace - 4)
+                guard topEdge.contains(index) == false else { return }
+                    gameSequence = repositionEmptyTile(in: gameSequence, fromIndex: index, toIndex: index - 4)
             case .left:
-                guard rightEdge.contains(indexOfSpace) == false else { return}
-                gameSequence = repositionEmptyTile(in: gameSequence, fromIndex: indexOfSpace, toIndex: indexOfSpace + 1)
+                guard rightEdge.contains(index) == false else { return}
+                gameSequence = repositionEmptyTile(in: gameSequence, fromIndex: index, toIndex: index + 1)
             default: print("This does not work")}
             
             updatePuzzleBoard()
             compareArrays()
         }
-
     }
         
     private func repositionEmptyTile<T>(in array: Array<T>, fromIndex: Int, toIndex: Int) -> Array<T>{
@@ -125,7 +122,7 @@ extension PuzzleBoardContainerView: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = puzzleBoardCV.dequeueReusableCell(withReuseIdentifier: PuzzleBoardCell.identifier, for: indexPath) as! PuzzleBoardCell
         
-        let index = indexPath.section * Constants.numberOfItemInSection + indexPath.row
+        let index = indexPath.section * Constants.numberOfItemsInSection + indexPath.row
         
         if gameSequence.count != 0 {
             cell.imageView.image = gameSequence[index]
@@ -136,4 +133,12 @@ extension PuzzleBoardContainerView: UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
+}
+
+extension PuzzleBoardContainerView: ImageSelectionDelegate {
+    func imageSelected(image: UIImage) {
+        solutionSequence = image.createSolutionSequence()
+        gameSequence = solutionSequence.shuffled()
+        updatePuzzleBoard()
+    }
 }

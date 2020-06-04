@@ -67,7 +67,7 @@ extension PuzzleBoardVC: UICollectionViewDataSource, UICollectionViewDelegate, U
 
     // Number of items in sections
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Constants.numberOfItemInSection
+        return Constants.numberOfItemsInSection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
